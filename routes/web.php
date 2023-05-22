@@ -26,3 +26,7 @@ Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('proc
 Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
 Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
 Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
