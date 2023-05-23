@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <p>desde el admin</p>
                 </div>
             </div>
         </div>

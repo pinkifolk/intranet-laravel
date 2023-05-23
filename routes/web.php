@@ -5,6 +5,8 @@ use App\Http\Controllers\NormativeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ValueController;
+
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('inicio');
 });
-Route::get('/noticias', [PostController::class, 'index'])->name('post');
-Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
-Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
-Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
-Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
+// Route::get('/noticias', [PostController::class, 'index'])->name('post');
+// Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
+// Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
+// Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
+// Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin/dashboard', [HomeController::class, 'index'])->name('dashboard');
