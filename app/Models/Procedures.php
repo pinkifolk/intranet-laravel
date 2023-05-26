@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Procedures extends Model
 {
+    protected $fillable = ['title', 'detail', 'url_pdf'];
     use HasFactory;
 }

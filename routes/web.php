@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\BenefitController;
-use App\Http\Controllers\NormativeController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProcedureController;
-use App\Http\Controllers\ValueController;
-
+use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NormativesController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\ProceduresController;
+use App\Http\Controllers\ValuesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +31,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.home');
+Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('admin.procedures');
+Route::post('admin/procedimientos', [ProceduresController::class, 'store'])->name('procedures.store');
+Route::get('admin/beneficios', [BenefitsController::class, 'index'])->name('admin.benefits');
+Route::get('admin/normativas', [NormativesController::class, 'index'])->name('admin.normative');
+Route::get('admin/nuestros-valores', [ValuesController::class, 'index'])->name('admin.values');
+Route::get('admin/equipo', [PersonalController::class, 'index'])->name('admin.personal');
