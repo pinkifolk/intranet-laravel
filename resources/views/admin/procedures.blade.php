@@ -12,4 +12,10 @@
     <input type="file" name="file">
     <button>Crear</button>
 </form>
+<div>
+    @foreach ($procedures_get as $item)
+    <li>{{$item->id}}</li>
+    <li>{{$item->title}}</li>
+    @endforeach
+</div>
 @endsection
