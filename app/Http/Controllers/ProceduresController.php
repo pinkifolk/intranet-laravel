@@ -28,5 +28,6 @@ class ProceduresController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        return redirect()->route('procedures.index')->with("procedimiento creado");
     }
 }

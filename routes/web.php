@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BenefitsController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NormativesController;
 use App\Http\Controllers\PersonalController;
@@ -31,9 +32,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.home');
-Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('admin.procedures');
+
+Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('procedures.index');
 Route::post('admin/procedimientos', [ProceduresController::class, 'store'])->name('procedures.store');
-Route::get('admin/beneficios', [BenefitsController::class, 'index'])->name('admin.benefits');
-Route::get('admin/normativas', [NormativesController::class, 'index'])->name('admin.normative');
-Route::get('admin/nuestros-valores', [ValuesController::class, 'index'])->name('admin.values');
-Route::get('admin/equipo', [PersonalController::class, 'index'])->name('admin.personal');
+
+Route::get('admin/beneficios', [BenefitsController::class, 'index'])->name('benefits.index');
+Route::post('admin/beneficios', [BenefitsController::class, 'store'])->name('benefits.store');
+
+Route::get('admin/normativas', [NormativesController::class, 'index'])->name('normative.index');
+Route::post('admin/normativas', [NormativesController::class, 'store'])->name('normative.store');
+
+Route::get('admin/nuestros-valores', [ValuesController::class, 'index'])->name('values.index');
+Route::post('admin/nuestros-valores', [ValuesController::class, 'store'])->name('values.store');
+
+Route::get('admin/equipo', [PersonalController::class, 'index'])->name('personal.index');
+Route::post('admin/equipo', [PersonalController::class, 'store'])->name('personal.store');
+
+Route::get('admin/departamentos', [DepartmentController::class, 'index'])->name('department.index');
+Route::post('admin/departamentos', [DepartmentController::class, 'store'])->name('department.store');

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Normatives extends Model
 {
+    protected $fillable = ['title', 'detail', 'url_pdf'];
     use HasFactory;
 }
