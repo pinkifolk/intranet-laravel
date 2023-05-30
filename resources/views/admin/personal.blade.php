@@ -25,6 +25,12 @@
     <input type="email" name="email" class="disabled:opacity-75">
     <label>Correo Personal</label>
     <input type="email" name="emailPersonal" class="disabled:opacity-75">
+    <label>Contraseña</label>
+    <input type="password" name="password" class="disabled:opacity-75">
+    <label>Repetir contraseña</label>
+    <input type="password" name="repitPassword" class="disabled:opacity-75">
+    <label>Administrador</label>
+    <input type="checkbox" name="isAdmin" value="1">
     <label>Imagen Perfil</label>
     <input type="file" name="file">
     <button>Crear</button>

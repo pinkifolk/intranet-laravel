@@ -9,16 +9,7 @@ use App\Http\Controllers\ProceduresController;
 use App\Http\Controllers\ValuesController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+/*Route for user */
 
 Route::get('/', function () {
     return view('inicio');
@@ -29,6 +20,8 @@ Route::get('/', function () {
 // Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
 // Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
 
+
+/*Routes for admin user */
 Auth::routes();
 
 Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.home');

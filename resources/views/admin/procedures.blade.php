@@ -2,6 +2,7 @@
 
 @section('content')
 <h1>procedimientos</h1>
+@livewire('procedure')
 <form action="{{route('procedures.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <label>Titulo</label>

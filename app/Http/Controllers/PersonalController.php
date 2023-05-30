@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Personal;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PersonalController extends Controller
 {
@@ -38,6 +40,13 @@ class PersonalController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'estado' => 1
+
+        ]);
+        User::create([
+            'name' => $request->name . " " . $request->lastName,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'is_admin' => $request->isAdmin
 
         ]);
 
