@@ -1,24 +1,29 @@
 <?php
 
+use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NormativeController;
 use App\Http\Controllers\NormativesController;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProceduresController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ValuesController;
+use App\Http\Controllers\ValueController;
 use Illuminate\Support\Facades\Route;
 
 /*Route for user */
 
-Route::get('/', function () {
-    return view('inicio');
-});
-// Route::get('/noticias', [PostController::class, 'index'])->name('post');
-// Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
-// Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
-// Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
-// Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
+Route::get('/', [PostController::class, 'getfive'])->name('home');
+Route::get('/noticias', [PostController::class, 'index'])->name('post');
+Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
+Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
+Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
+Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
+Route::get('/equipo', [TeamController::class, 'index'])->name('teams');
 
 
 /*Routes for admin user */
