@@ -25,7 +25,7 @@
             </div>
         </div>
     </aside>
-    <nav class="fixed top-0 mb-5 p-4 sm:ml-64 flex  w-screen">
+    <nav class="fixed top-0 mb-5 p-4 sm:ml-64 flex w-screen bg-back">
         <div class="mt-0 mr-5 w-200">
             <a href="{{route('home')}}"><img src="{{asset('img/provaltec-negro.png')}}" alt="Provaltec-SpA"
                     title="Provaltec-SpA"></a>
@@ -59,7 +59,7 @@
             <i class=" fa-solid fa-right-from-bracket"></i>
         </div>
     </nav>
-    <section class="p-4 sm:ml-64 mt-9">
+    <section class="p-4 sm:ml-64 mt-20">
         @yield('content')
     </section>
 
