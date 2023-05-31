@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 /*Route for user */
 
 Route::get('/', [PostController::class, 'getfive'])->name('home');
-Route::get('/noticias', [PostController::class, 'index'])->name('post');
+Route::get('/perfil', [ProfileController::class, 'index'])->name('profile');
 Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
 Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
 Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
