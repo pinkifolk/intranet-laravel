@@ -10,6 +10,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProceduresController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ValuesController;
 use App\Http\Controllers\ValueController;
@@ -18,12 +19,13 @@ use Illuminate\Support\Facades\Route;
 /*Route for user */
 
 Route::get('/', [PostController::class, 'getfive'])->name('home');
-Route::get('/noticias', [PostController::class, 'index'])->name('post');
+Route::get('/perfil', [ProfileController::class, 'index'])->name('profile');
 Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
 Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');
 Route::get('/normativas', [NormativeController::class, 'index'])->name('normative');
 Route::get('/valores', [ValueController::class, 'index'])->name('our-values');
 Route::get('/equipo', [TeamController::class, 'index'])->name('teams');
+Route::get('/noticias', [PostController::class, 'index'])->name('post');
 
 
 /*Routes for admin user */
