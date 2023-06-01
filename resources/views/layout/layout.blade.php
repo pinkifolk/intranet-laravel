@@ -19,9 +19,18 @@
                 <span>Sub Gerente Finanzas</span>
             </div>
             <div class="flex flex-col text-slate-100 m-10 text-center">
-                <span>124</span>
-                <span>2/11/1995</span>
-                <span>paz.tejedo@provaltec.cl</span>
+                <span>
+                    <i class="fa-solid fa-phone"></i>
+                    124
+                </span>
+                <span>
+                    <i class="fa-solid fa-cake-candles mr-1"></i>
+                    2/11/1995
+                </span>
+                <span>
+                    <i class="fa-regular fa-envelope"></i>
+                    paz.tejedo@provaltec.cl
+                </span>
             </div>
         </div>
     </aside>

@@ -2,3 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 @import "@fortawesome/fontawesome-free/css/all.css";
+
+.organigram * {
+    padding: 0;
+    margin: 0;
+}
+
+.organigram ul {
+    margin-top: 20px;
+    position: relative;
+}
+
+.organigram li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    padding: 20px 5px 0 5px;
+    position: relative;
+}
+
+.organigram li::before,
+.organigram li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #f80;
+    width: 50%;
+    height: 20px;
+}
+
+.organigram li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #f80;
+}
+
+.organigram li:only-child::before,
+.organigram li:only-child::after {
+    display: none;
+}
+
+.organigram li:only-child {
+    padding-top: 0;
+}
+
+.organigram li:first-child::before,
+.organigram li:last-child::after {
+    border: 0 none;
+}
+
+.organigram li:last-child::before {
+    border-right: 1px solid #f80;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
+}
+
+.organigram li:first-child::after {
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+}
+
+.organigram ul ul::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    border-left: 1px solid #f80;
+    width: 0;
+    height: 20px;
+
+}
+
+.organigram li a {
+    border: 1px solid #f80;
+    padding: 1em 0.75em;
+    text-decoration: none;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85em;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    transition: all 500ms;
+
+}
+
+.organigram li a:hover {
+    border: 1px solid white;
+    color: #ddd;
+    background-color: rgba(255, 128, 0, 0.7);
+    display: inline-block;
+}
+
+.organigram>ul>li>a {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.organigram>ul>li>ul>li>a {
+    width: 8em;
+}
