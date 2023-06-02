@@ -35,7 +35,7 @@
             </div>
         </div>
     </aside>
-    <nav class="fixed top-0 mb-5 p-4 sm:ml-64 flex w-screen bg-back">
+    <nav class="fixed top-0 mb-5 p-4 sm:ml-64 flex w-screen bg-back z-40">
         <div class="mt-0 mr-5 w-200">
             <a href="{{route('home')}}"><img src="{{asset('img/provaltec-negro.png')}}" alt="Provaltec-SpA"
                     title="Provaltec-SpA"></a>
@@ -49,8 +49,9 @@
                 <a href="{{route('profile')}}"
                     class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Perfil</a>
             </li>
-            <li> <a href="#" class="font-medium block py-2 pl-7 pr-7">Nosotros</a>
-                <ul class="absolute hidden bg-action p-1 text-white rounded-md sub">
+            <li> <a href="#" class="font-medium block py-2 pl-7 pr-7 peer">Nosotros</a>
+                <ul
+                    class="absolute drop-shadow-lg hidden peer-hover:flex hover:flex flex-col bg-action p-1 text-white rounded-md">
                     <li><a href="{{route('procedure')}}"
                             class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Procedimientos</a>
                     </li>
