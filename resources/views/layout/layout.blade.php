@@ -14,9 +14,10 @@
     <aside class="fixed top-0 left-0 z-40 w-64 h-screen bg-aside">
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
-                <img src="storage/personal/paz.png" class="rounded-full w-32 border-4 border-action" alt="" title="">
-                <h1 class="font-bold text-2xl">Paz tejedo</h1>
-                <span>Sub Gerente Finanzas</span>
+                <img src="storage/personal/sebastian.png" class="rounded-full w-32 border-4 border-action" alt=""
+                    title="">
+                <h1 class="font-bold text-2xl">Sebastian Solis</h1>
+                <span>IT</span>
             </div>
             <div class="flex flex-col text-slate-100 m-10 text-center">
                 <span>
@@ -25,11 +26,11 @@
                 </span>
                 <span>
                     <i class="fa-solid fa-cake-candles mr-1"></i>
-                    2/11/1995
+                    020/05/1992
                 </span>
                 <span>
                     <i class="fa-regular fa-envelope"></i>
-                    paz.tejedo@provaltec.cl
+                    sebastian.solis@provaltec.cl
                 </span>
             </div>
         </div>
@@ -41,26 +42,34 @@
         </div>
         <ul class="flex justify-col mt-2">
             <li>
-                <a href="#" class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Inicio</a>
+                <a href="{{route('home')}}"
+                    class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Inicio</a>
             </li>
             <li>
-                <a href="#" class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Perfil</a>
+                <a href="{{route('profile')}}"
+                    class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Perfil</a>
             </li>
             <li> <a href="#" class="font-medium block py-2 pl-7 pr-7">Nosotros</a>
-                <ul class="absolute hidden bg-action p-1 text-white rounded-md">
-                    <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Procedimientos</a>
+                <ul class="absolute hidden bg-action p-1 text-white rounded-md sub">
+                    <li><a href="{{route('procedure')}}"
+                            class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Procedimientos</a>
                     </li>
-                    <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Beneficios</a>
+                    <li><a href="{{route('benefit')}}"
+                            class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Beneficios</a>
                     </li>
-                    <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Normativas</a>
+                    <li><a href="{{route('normative')}}"
+                            class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Normativas</a>
                     </li>
-                    <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Nuestros
+                    <li><a href="{{route('our-values')}}"
+                            class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Nuestros
                             Valores</a></li>
-                    <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Equipo</a>
+                    <li><a href="{{route('teams')}}"
+                            class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Equipo</a>
                     </li>
                 </ul>
             </li>
-            <li><a href="#" class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Noticias</a>
+            <li><a href="{{route('post')}}"
+                    class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Noticias</a>
             </li>
         </ul>
         <div class="text-black">
