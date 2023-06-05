@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\DepartmentController;
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 /*Route for user */
 
-Route::get('/', [PostController::class, 'getfive'])->name('home');
+Route::get('/', [LoginController::class, 'formLogin'])->name('login');
+Route::get('/inicio', [PostController::class, 'getfive'])->name('home');
 Route::get('/perfil', [ProfileController::class, 'index'])->name('profile');
 Route::get('/procedimientos', [ProcedureController::class, 'index'])->name('procedure');
 Route::get('/beneficios', [BenefitController::class, 'index'])->name('benefit');

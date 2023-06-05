@@ -11,6 +11,7 @@ module.exports = {
         back: '#F5F5F5',
         aside: '#283739',
         action: '#228896',
+        hover: 'rgb(34 136 150 / 85%)',
         secondary: '#A9C52F',
       },
       spacing: {
