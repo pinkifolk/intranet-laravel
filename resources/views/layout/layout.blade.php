@@ -74,8 +74,11 @@
             </li>
         </ul>
         <div class="text-black">
-            <button class="">Salir</button>
-            <i class=" fa-solid fa-right-from-bracket"></i>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+                <button class="">Salir</button>
+                <i class=" fa-solid fa-right-from-bracket"></i>
+            </form>
         </div>
     </nav>
     <section class="p-4 sm:ml-64 mt-20">

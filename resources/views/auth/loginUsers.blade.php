@@ -24,11 +24,21 @@
                         <input type="email" name="email"
                             class="my-5 p-1 w-full border shadow-sm border-slate-300 placeholder-slate-500 focus:outline-none focus:border-aside rounded-md block"
                             required placeholder="Email">
+                        @error('email')
+                        <span class="text-red-700" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="m-1">
-                        <input type="password" name="pass"
+                        <input type="password" name="password"
                             class="my-5 p-1 w-full border shadow-sm border-slate-300 placeholder-slate-500 focus:outline-none focus:border-aside rounded-md block"
                             required placeholder="•••••••••">
+                        @error('password')
+                        <span class="text-red-700" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button class="text-center bg-action px-24 py-2 rounded-md text-white font-bold hover:bg-hover"
                         type="submit">Ingresar</button>
