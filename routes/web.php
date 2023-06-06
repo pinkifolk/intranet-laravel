@@ -33,6 +33,7 @@ Route::get('/noticias', [PostController::class, 'index'])->name('post');
 /*Routes for admin user */
 Auth::routes();
 
+Route::get('admin/', [HomeController::class, 'index'])->name('admin');
 Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.home');
 
 Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('procedures.index');
