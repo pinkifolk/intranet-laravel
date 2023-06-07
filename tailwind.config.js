@@ -15,7 +15,8 @@ module.exports = {
         secondary: '#A9C52F',
       },
       spacing: {
-        '200': '200px'
+        '200': '200px',
+        '150': '150px',
       },
     },
 

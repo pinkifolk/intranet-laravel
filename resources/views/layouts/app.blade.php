@@ -9,10 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Provaltec') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @livewireStyles
 
     <!-- css -->
@@ -20,7 +16,59 @@
 </head>
 
 <body>
-    <div id="app">
+    <aside class="fixed top-0 left-0 z-40 w-52 h-screen bg-aside">
+        <div class="mx-auto mt-8 p-2 w-200">
+            <a href="{{route('home')}}"><img src="{{asset('img/provaltec-blanco.png')}}" alt="Provaltec-SpA"
+                    title="Provaltec-SpA"></a>
+        </div>
+        <nav class="flex flex-col">
+            <ul class="text-white">
+                <li class="my-3">
+                    <i class="fa-solid fa-house mx-2"></i>
+                    <a href="#">
+                        Inicio
+                    </a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-users mx-2"></i>
+                    <a href="{{route('personal.index')}}">Personas</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-book mx-2"></i>
+                    <a href="{{route('procedures.index')}}">Procedimiento</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-hand-holding-medical mx-2"></i>
+                    <a href="{{route('benefits.index')}}">Beneficios</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-gavel mx-2"></i>
+                    <a href="{{route('normative.index')}}">Normativas</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-hands-holding-circle mx-2"></i>
+                    <a href="{{route('values.index')}}">Valores</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-building mx-2"></i>
+                    <a href="{{route('department.index')}}">Departamentos</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-newspaper mx-2"></i>
+                    <a href="{{route('personal.index')}}">Noticias</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-bullhorn mx-2"></i>
+                    <a href="#">Comunicados</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-user-shield mx-2"></i>
+                    <a href="#">Administradores</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    {{-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -31,7 +79,7 @@
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                cc
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
@@ -75,9 +123,9 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
-        <main class="py-4">
+        <main class="p-4 sm:ml-64">
             @yield('content')
         </main>
     </div>
