@@ -1,5 +1,57 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ config('app.name', 'Provaltec') }}</title>
+    @vite('resources/css/app.scss')
+</head>
+
+<body>
+    <div class="flex flex-col items-center justify-center h-screen bg-back">
+        <div class="">
+            <img src="img/provaltec-negro.png" alt="Provaltec" title="Provaltec">
+        </div>
+        <form action="{{ route('login.admin') }}" method="POST">
+            @csrf
+            <div class="m-1">
+                <input type="email" name="email"
+                    class="my-5 p-1 w-full border shadow-sm border-slate-300 placeholder-slate-500 focus:outline-none focus:border-aside rounded-md block"
+                    required placeholder="Email">
+                @error('email')
+                <span class="text-red-700">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="m-1">
+                <input type="password" name="password"
+                    class="my-5 p-1 w-full border shadow-sm border-slate-300 placeholder-slate-500 focus:outline-none focus:border-aside rounded-md block"
+                    required placeholder="•••••••••">
+                @error('password')
+                <span class="text-red-700">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <button class="text-center bg-action px-24 py-2 rounded-md text-white font-bold hover:bg-hover"
+                type="submit">Ingresar</button>
+        </form>
+        @error('status')
+        <span class="text-red-700">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+</body>
+
+</html>
+
+{{-- @extends('layouts.app') --}}
+{{--
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -76,4 +128,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

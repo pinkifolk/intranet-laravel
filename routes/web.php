@@ -34,6 +34,7 @@ Route::get('/noticias', [PostController::class, 'index'])->name('post');
 Auth::routes();
 
 Route::get('admin/', [HomeController::class, 'index'])->name('admin');
+Route::post('admin/', [LoginController::class, 'loginAdmin'])->name('login.admin');
 Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.home');
 
 Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('procedures.index');

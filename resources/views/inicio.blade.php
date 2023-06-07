@@ -5,8 +5,9 @@
         <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/Partido.jpeg" alt="">
         <div class="flex flex-col justify-between">
             <div class="flex flex-col justify-start">
-                <h5 class="p-2 text-xl font-bold">Pin Pon</h5>
-                <p class="text-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dignissimos
+                <h5 class="p-2 text-xl font-bold font-title">Pin Pon</h5>
+                <p class="text-base font-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+                    dignissimos
                     aliquam,
                     perspiciatis fugiat
                     non
