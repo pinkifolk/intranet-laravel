@@ -15,7 +15,7 @@
     @vite('resources/css/app.scss')
 </head>
 
-<body>
+<body class="bg-back">
     <aside class="fixed top-0 left-0 z-40 w-52 h-screen bg-aside">
         <div class="mx-auto mt-8 p-2 w-200">
             <a href="{{route('home')}}"><img src="{{asset('img/provaltec-blanco.png')}}" alt="Provaltec-SpA"
@@ -125,7 +125,7 @@
             </div>
         </nav> --}}
 
-        <main class="p-4 sm:ml-64">
+        <main class="p-10 sm:ml-52">
             @yield('content')
         </main>
     </div>
@@ -133,5 +133,6 @@
 </body>
 <!-- Script -->
 @livewireScripts
+@vite('resources/js/app.js')
 
 </html>

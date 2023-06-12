@@ -2,18 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Procedures;
 use Livewire\Component;
 
 class Procedure extends Component
 {
-    public $conuter = 0;
-
-    public function increment()
-    {
-        $this->conuter++;
-    }
+    public $search;
     public function render()
     {
-        return view('livewire.procedure');
+        $getProcesures = Procedures::take(5)->where('title', 'like', '%' . $this->search . '%')->get();
+        return view('livewire.procedure', ['resultSearch' => $getProcesures]);
     }
 }
