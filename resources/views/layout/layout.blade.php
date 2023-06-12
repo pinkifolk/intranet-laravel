@@ -84,6 +84,30 @@
     <section class="p-4 sm:ml-64 mt-20">
         @yield('content')
     </section>
+    <footer class="p-4 sm:ml-64 bg-black">
+        <div class="grid grid-rows-1 gap-5 text-white">
+            <div class="m-5">
+                <img class="p-3 w-80" src="img/provaltec-blanco-footer.png" alt="#">
+                <div class="pl-6 pt-2">
+                    <a href="https://www.youtube.com/channel/UCW-YyJqRU3w_gu7Oo_4KrXA" target="_blank" class="px-2">
+                        <i class="fa-brands fa-youtube fa-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/provaltec/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/valvulastecnicas/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/provaltec/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-linkedin fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center">
+                <p>Todo los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
