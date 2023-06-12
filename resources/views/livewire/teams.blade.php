@@ -2,7 +2,7 @@
     <aside class="fixed top-0 left-0 z-40 w-64 h-screen bg-aside">
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
-                <img src="{{$img}}" class="rounded-full w-32 border-4 border-action" alt="" title="">
+                <img src="{{$img}}" class="rounded-full w-32 border-4 border-secondary" alt="" title="">
                 <h1 class="font-bold text-2xl">{{$name}}</h1>
                 <span>{{$job}}</span>
             </div>

@@ -14,9 +14,9 @@
     <aside class="fixed top-0 left-0 z-40 w-64 h-screen bg-aside">
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
-                <img src="storage/personal/sebastian.png" class="rounded-full w-32 border-4 border-action" alt=""
+                <img src="storage/personal/sebastian.png" class="rounded-full w-32 border-4 border-secondary" alt=""
                     title="">
-                <h1 class="font-bold text-2xl">Nombre</h1>
+                <h1 class="font-bold text-2xl">Sebastian Solis</h1>
                 <span>IT</span>
             </div>
             <div class="flex flex-col text-slate-100 m-10 text-center">
@@ -26,7 +26,7 @@
                 </span>
                 <span>
                     <i class="fa-solid fa-cake-candles mr-1"></i>
-                    020/05/1992
+                    02/05/1992
                 </span>
                 <span>
                     <i class="fa-regular fa-envelope"></i>
