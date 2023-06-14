@@ -29,6 +29,10 @@
                     02/05/1992
                 </span>
                 <span>
+                    <i class="fa-solid fa-truck-medical mr-1"></i>
+                    +569 85158567
+                </span>
+                <span>
                     <i class="fa-regular fa-envelope"></i>
                     sebastian.solis@provaltec.cl
                 </span>
