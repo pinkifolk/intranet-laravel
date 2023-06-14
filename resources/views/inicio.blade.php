@@ -2,7 +2,7 @@
 @section('content')
 <div class="grid grid-cols-1 gap-8">
     <a href="#">
-        <div class="lg:flex border-b-4 p-2">
+        <div class="lg:flex border-b-4 p-5">
             <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/1686339667706.jpg" alt="">
             <div class="flex flex-col justify-between">
                 <div class="flex flex-col justify-start">
@@ -32,7 +32,7 @@
         </div>
     </a>
     <a href="#">
-        <div class="lg:flex">
+        <div class="lg:flex p-5">
             <div class="flex flex-col justify-between">
                 <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/IMG_3839.jpg" alt="">
                 <div class="flex flex-col justify-start">
@@ -46,27 +46,64 @@
         </div>
     </a>
 
-    <div class="lg:flex">
+    <div class="lg:flex p-5">
         <div class="grid grid-cols-4 gap-5">
             <a href="#" class="hover:bg-slate-200">
                 <div class="">
-                    <img class="w-full object-cover h-80 rounded-lg lg:w-84 " src="storage/Partido.jpeg" alt="">
-                    <h5 class="p-2 text-xl font-bold">Caja Los Heroes</h5>
+                    <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/we2.jpeg" alt="">
+                    <h5 class="p-2 text-xl font-bold">Celebraciones y Premiación </h5>
                     <p class="text-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dignissimos
                         aliquam,
                         perspiciatis fugiat
                     </p>
+                    <span class="text-xs text-slate-600">
+                        <i class="fa-regular fa-clock fa-xs"></i>
+                        18/02/2023
+                    </span>
                 </div>
             </a>
-            <div class="">
-                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/Partido.jpeg" alt="">
-            </div>
-            <div class="">
-                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/Partido.jpeg" alt="">
-            </div>
-            <div class="">
-                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/Partido.jpeg" alt="">
-            </div>
+            <a href="#" class="hover:bg-slate-200">
+                <div class="">
+                    <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/we3.jpg" alt="">
+                    <h5 class="p-2 text-xl font-bold">Dia de las Madres</h5>
+                    <p class="text-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dignissimos
+                        aliquam,
+                        perspiciatis fugiat
+                    </p>
+                    <span class="text-xs text-slate-600">
+                        <i class="fa-regular fa-clock fa-xs"></i>
+                        18/02/2023
+                    </span>
+                </div>
+            </a>
+            <a href="#" class="hover:bg-slate-200">
+                <div class="">
+                    <img class="w-full object-cover h-80 rounded-lg lg:w-84 " src="storage/we.jpeg" alt="">
+                    <h5 class="p-2 text-xl font-bold">Ecommerce day</h5>
+                    <p class="text-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dignissimos
+                        aliquam,
+                        perspiciatis fugiat
+                    </p>
+                    <span class="text-xs text-slate-600">
+                        <i class="fa-regular fa-clock fa-xs"></i>
+                        18/02/2023
+                    </span>
+                </div>
+            </a>
+            <a href="#" class="hover:bg-slate-200">
+                <div class="">
+                    <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/we1.jpeg" alt="">
+                    <h5 class="p-2 text-xl font-bold">Outside 2023</h5>
+                    <p class="text-base p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dignissimos
+                        aliquam,
+                        perspiciatis fugiat
+                    </p>
+                    <span class="text-xs text-slate-600">
+                        <i class="fa-regular fa-clock fa-xs"></i>
+                        18/02/2023
+                    </span>
+                </div>
+            </a>
         </div>
         {{-- <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="storage/Partido.jpeg" alt=""> --}}
         {{-- <div class="flex flex-col justify-between">

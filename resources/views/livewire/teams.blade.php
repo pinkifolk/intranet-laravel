@@ -65,9 +65,52 @@
             <i class=" fa-solid fa-right-from-bracket"></i>
         </div>
     </nav>
+
     <section class="p-4 sm:ml-64 mt-20">
-        @foreach ($team as $item)
+        {{-- @foreach ($team as $item)
         <button wire:click="showInfo({{$item->id}})">{{$item->name}}</button>
-        @endforeach
+        @endforeach --}}
+        <div class="grid grid-rows-6 text-black text-center gap-5 justify-center">
+            <div class="my-6 w-24">
+                <img src="storage/personal/armando.png" alt="" class="rounded-full">
+                <h3 class="font-bold relative">Armando Arias</h3>
+                <span>Gerente General</span>
+            </div>
+            <div class="my-6 py-6 w-24">
+
+                <img src="storage/personal/marta.png" alt="" class="rounded-full">
+            </div>
+            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
+            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
+            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
+            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
+        </div>
     </section>
+    <footer class="p-4 sm:ml-64 bg-black">
+        <div class="grid grid-rows-1 gap-5 text-white">
+            <div class="m-5">
+                <img class="p-3 w-80" src="img/provaltec-blanco-footer.png" alt="#">
+                <div class="pl-6 pt-2">
+                    <a href="https://www.youtube.com/channel/UCW-YyJqRU3w_gu7Oo_4KrXA" target="_blank" class="px-2">
+                        <i class="fa-brands fa-youtube fa-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/provaltec/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/valvulastecnicas/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/provaltec/" target="_blank" class="px-2">
+                        <i class="fa-brands fa-linkedin fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center">
+                <p>Todo los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+
+
 </div>
