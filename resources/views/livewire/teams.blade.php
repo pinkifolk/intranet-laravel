@@ -67,23 +67,47 @@
     </nav>
 
     <section class="p-4 sm:ml-64 mt-20">
-        {{-- @foreach ($team as $item)
-        <button wire:click="showInfo({{$item->id}})">{{$item->name}}</button>
-        @endforeach --}}
         <div class="grid grid-rows-6 text-black text-center gap-5 justify-center">
-            <div class="my-6 w-24">
-                <img src="storage/personal/armando.png" alt="" class="rounded-full">
-                <h3 class="font-bold relative">Armando Arias</h3>
-                <span>Gerente General</span>
+            @foreach ($team as $item)
+            <button wire:click="showInfo({{$item->id}})">
+                <div class="my-6 w-30">
+                    <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                        class="rounded-full w-24 m-auto">
+                    <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                    <span class="">{{$item->job_title}}</span>
+                </div>
+            </button>
+            @endforeach
+            {{--
+            <a href="#">
+                <div class="my-6 w-30">
+                    <img src="storage/personal/armando.png" alt="" class="rounded-full w-24 m-auto">
+                    <h3 class="font-bold">Armando Arias</h3>
+                    <span class="">Gerente General</span>
+                </div>
+            </a>
+            <div class="my-6 w-30">
+                <img src="storage/personal/marta.png" alt="" class="rounded-full w-24 m-auto">
+                <h3 class="font-bold">Marta Arias</h3>
+                <span class="">Gerente General</span>
             </div>
-            <div class="my-6 py-6 w-24">
+            <div class="my-6 w-30 grid grid-rows-2">
+                <div>
+                    <img src="storage/personal/mauricio.png" alt="" class="rounded-full w-24 m-auto">
+                    <h3 class="font-bold">Mauricio Barahona</h3>
+                    <span class="">Gerente Tecnologia</span>
+                </div>
+                <div>
+                    <img src="storage/personal/sebastian.png" alt="" class="rounded-full w-24 m-auto">
+                    <h3 class="font-bold">Sebastian Solis</h3>
+                    <span class="">Supervisor de Infraestrucura y Desarrollo</span>
+                </div>
 
-                <img src="storage/personal/marta.png" alt="" class="rounded-full">
             </div>
             <div class="my-6 py-6 bg-slate-400 w-24">A</div>
             <div class="my-6 py-6 bg-slate-400 w-24">A</div>
             <div class="my-6 py-6 bg-slate-400 w-24">A</div>
-            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
+            <div class="my-6 py-6 bg-slate-400 w-24">A</div> --}}
         </div>
     </section>
     <footer class="p-4 sm:ml-64 bg-black">

@@ -13,10 +13,10 @@ class Teams extends Component
     {
         $d = Personal::find($id);
         $this->data = $d->id;
-        $this->name = $d->name;
+        $this->name = $d->name . " " . $d->last_name;
         $this->job = $d->job_title;
         $this->ext = $d->extension;
-        $this->birthday = $d->birthday;
+        $this->birthday = date('d-m-Y', strtotime($d->birthday));
         $this->email = $d->email;
         $this->img = $d->route_img;
     }
