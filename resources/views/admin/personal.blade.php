@@ -4,6 +4,12 @@
 <h1>colaboradores</h1>
 <form action="{{route('personal.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
+    <label>Tipo</label>
+    <select name="type">
+        <option value="1">Gerente</option>
+        <option value="2">Jefe de Area</option>
+        <option value="3">Trabajador</option>
+    </select>
     <label>Nombre</label>
     <input type="text" name="name" class="disabled:opacity-75">
     <label>Apellido</label>
@@ -25,6 +31,8 @@
     <input type="email" name="email" class="disabled:opacity-75">
     <label>Correo Personal</label>
     <input type="email" name="emailPersonal" class="disabled:opacity-75">
+    <label>Telefono Emergencia</label>
+    <input type="text" name="emergencyContact" class="disabled:opacity-75">
     <label>Contraseña</label>
     <input type="password" name="password" class="disabled:opacity-75">
     <label>Repetir contraseña</label>
