@@ -39,6 +39,7 @@ Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.hom
 
 Route::get('admin/procedimientos', [ProceduresController::class, 'index'])->name('procedures.index');
 Route::post('admin/procedimientos', [ProceduresController::class, 'store'])->name('procedures.store');
+Route::get('admin/procedimientos/{item}', [ProceduresController::class, 'edit'])->name('procedures.edit');
 
 Route::get('admin/beneficios', [BenefitsController::class, 'index'])->name('benefits.index');
 Route::post('admin/beneficios', [BenefitsController::class, 'store'])->name('benefits.store');

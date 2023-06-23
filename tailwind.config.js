@@ -17,6 +17,7 @@ module.exports = {
         action: '#228896',
         hover: 'rgb(34 136 150 / 85%)',
         secondary: '#A9C52F',
+        message: 'rgb(21 128 61 / 77%)',
       },
       spacing: {
         '200': '200px',
