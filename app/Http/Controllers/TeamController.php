@@ -9,7 +9,6 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $team_get = Personal::get();
-        return view('equipo2', compact('team_get'));
+        return view('equipo2');
     }
 }

@@ -66,48 +66,168 @@
         </div>
     </nav>
 
-    <section class="p-4 sm:ml-64 mt-20">
-        <div class="grid grid-rows-6 text-black text-center gap-5 justify-center">
-            @foreach ($team as $item)
+    <section class="p-4 sm:ml-64 mt-20 bg-slate-400 text-black text-center">
+        <div class="grid grid-rows-1 ">
+            @foreach ($gent as $item)
             <button wire:click="showInfo({{$item->id}})">
-                <div class="my-6 w-30">
-                    <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
-                        class="rounded-full w-24 m-auto">
-                    <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
-                    <span class="">{{$item->job_title}}</span>
+                <div>
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span>{{$item->job_title}}</span>
+                    </div>
                 </div>
             </button>
             @endforeach
-            {{--
-            <a href="#">
-                <div class="my-6 w-30">
-                    <img src="storage/personal/armando.png" alt="" class="rounded-full w-24 m-auto">
-                    <h3 class="font-bold">Armando Arias</h3>
-                    <span class="">Gerente General</span>
+        </div>
+        <div class="grid grid-rows-1">
+            @foreach ($it as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span>{{$item->job_title}}</span>
+                    </div>
+                </button>
+                <div class="grid grid-cols-4">
+                    @foreach ($personalIt as $item)
+                    <div>
+                        <button wire:click="showInfo({{$item->id}})">
+                            <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                                class="rounded-full w-24 m-auto">
+                            <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                            <span>{{$item->job_title}}</span>
+                        </button>
+                    </div>
+                    @endforeach
                 </div>
-            </a>
-            <div class="my-6 w-30">
-                <img src="storage/personal/marta.png" alt="" class="rounded-full w-24 m-auto">
-                <h3 class="font-bold">Marta Arias</h3>
-                <span class="">Gerente General</span>
             </div>
-            <div class="my-6 w-30 grid grid-rows-2">
-                <div>
-                    <img src="storage/personal/mauricio.png" alt="" class="rounded-full w-24 m-auto">
-                    <h3 class="font-bold">Mauricio Barahona</h3>
-                    <span class="">Gerente Tecnologia</span>
-                </div>
-                <div>
-                    <img src="storage/personal/sebastian.png" alt="" class="rounded-full w-24 m-auto">
-                    <h3 class="font-bold">Sebastian Solis</h3>
-                    <span class="">Supervisor de Infraestrucura y Desarrollo</span>
-                </div>
 
+            @endforeach
+        </div>
+        <div class="grid grid-rows-1 my-10">
+            @foreach ($sales as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span class="">{{$item->job_title}}</span>
+                    </div>
+                </button>
+                <div class="grid grid-cols-4 my-8">
+                    @foreach ($personalSales as $item)
+                    <div>
+                        <button wire:click="showInfo({{$item->id}})">
+                            <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                                class="rounded-full w-24 m-auto">
+                            <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                            <span>{{$item->job_title}}</span>
+                        </button>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
-            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
-            <div class="my-6 py-6 bg-slate-400 w-24">A</div>
-            <div class="my-6 py-6 bg-slate-400 w-24">A</div> --}}
+            @endforeach
+        </div>
+        <div class="grid grid-rows-1 my-10">
+            @foreach ($mkt as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span class="">{{$item->job_title}}</span>
+                    </div>
+                </button>
+            </div>
+            @endforeach
+        </div>
+        <div class="grid grid-rows-1 my-10">
+            @foreach ($adm as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span class="">{{$item->job_title}}</span>
+                    </div>
+                </button>
+                <div class="grid grid-cols-6 my-8">
+                    @foreach ($personalAdm as $item)
+                    <div>
+                        <button wire:click="showInfo({{$item->id}})">
+                            <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                                class="rounded-full w-24 m-auto">
+                            <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                            <span>{{$item->job_title}}</span>
+                        </button>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            </button>
+            @endforeach
+        </div>
+        <div class="grid grid-rows-1 my-10">
+            @foreach ($ope as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span class="">{{$item->job_title}}</span>
+                    </div>
+                </button>
+            </div>
+            </button>
+            @endforeach
+            <div class="grid grid-cols-5 my-8">
+                @foreach ($personalOpe as $item)
+                <div>
+                    <button wire:click="showInfo({{$item->id}})">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span>{{$item->job_title}}</span>
+                    </button>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="grid grid-rows-1 my-10">
+            @foreach ($salesTerr as $item)
+            <div>
+                <button wire:click="showInfo({{$item->id}})">
+                    <div class="my-6 w-30">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span class="">{{$item->job_title}}</span>
+                    </div>
+                </button>
+            </div>
+            </button>
+            @endforeach
+            <div class="grid grid-cols-2 my-8">
+                @foreach ($personalTerr as $item)
+                <div>
+                    <button wire:click="showInfo({{$item->id}})">
+                        <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
+                            class="rounded-full w-24 m-auto">
+                        <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
+                        <span>{{$item->job_title}}</span>
+                    </button>
+                </div>
+                @endforeach
+            </div>
         </div>
     </section>
     <footer class="p-4 sm:ml-64 bg-black">

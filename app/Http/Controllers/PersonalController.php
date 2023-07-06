@@ -15,7 +15,8 @@ class PersonalController extends Controller
     {
         $personal_get = Personal::get();
         $department_get = Department::get();
-        return view('admin.personal', compact('personal_get', 'department_get'));
+        $patent = Personal::where('type', 1)->get();
+        return view('admin.personal', compact('personal_get', 'department_get', 'patent'));
     }
     public function store(Request $request)
     {
@@ -32,6 +33,7 @@ class PersonalController extends Controller
             'extension' => $request->extension,
             'department_id' => $request->department,
             'type' => $request->type,
+            'parent' => '',
             'birthday' => $request->birthday,
             'email' => $request->email,
             'email_personal' => $request->emailPersonal,
