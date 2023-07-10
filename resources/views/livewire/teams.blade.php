@@ -66,12 +66,12 @@
         </div>
     </nav>
 
-    <section class="p-4 sm:ml-64 mt-20 bg-slate-400 text-black text-center">
-        <div class="grid grid-rows-1 ">
+    <section class="p-4 sm:ml-64 mt-20 text-black text-center">
+        <div class="grid grid-rows-1">
             @foreach ($gent as $item)
             <button wire:click="showInfo({{$item->id}})">
                 <div>
-                    <div class="my-6 w-30">
+                    <div class="my-6 w-30 organigram">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
                         <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
@@ -94,7 +94,7 @@
                 </button>
                 <div class="grid grid-cols-4">
                     @foreach ($personalIt as $item)
-                    <div>
+                    <div class="sub">
                         <button wire:click="showInfo({{$item->id}})">
                             <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                                 class="rounded-full w-24 m-auto">
@@ -112,7 +112,7 @@
             @foreach ($sales as $item)
             <div>
                 <button wire:click="showInfo({{$item->id}})">
-                    <div class="my-6 w-30">
+                    <div class="my-6 w-30 organigram">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
                         <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
@@ -121,7 +121,7 @@
                 </button>
                 <div class="grid grid-cols-4 my-8">
                     @foreach ($personalSales as $item)
-                    <div>
+                    <div class="sub">
                         <button wire:click="showInfo({{$item->id}})">
                             <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                                 class="rounded-full w-24 m-auto">
@@ -138,7 +138,7 @@
             @foreach ($mkt as $item)
             <div>
                 <button wire:click="showInfo({{$item->id}})">
-                    <div class="my-6 w-30">
+                    <div class="my-6 w-30 organigram">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
                         <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
@@ -152,7 +152,7 @@
             @foreach ($adm as $item)
             <div>
                 <button wire:click="showInfo({{$item->id}})">
-                    <div class="my-6 w-30">
+                    <div class="my-6 w-30 organigram">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
                         <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
@@ -161,7 +161,7 @@
                 </button>
                 <div class="grid grid-cols-6 my-8">
                     @foreach ($personalAdm as $item)
-                    <div>
+                    <div class="sub">
                         <button wire:click="showInfo({{$item->id}})">
                             <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                                 class="rounded-full w-24 m-auto">
@@ -179,7 +179,7 @@
             @foreach ($ope as $item)
             <div>
                 <button wire:click="showInfo({{$item->id}})">
-                    <div class="my-6 w-30">
+                    <div class="my-6 w-30 organigram">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
                         <h3 class="font-bold">{{$item->name}} {{$item->last_name}}</h3>
@@ -191,7 +191,7 @@
             @endforeach
             <div class="grid grid-cols-5 my-8">
                 @foreach ($personalOpe as $item)
-                <div>
+                <div class="sub">
                     <button wire:click="showInfo({{$item->id}})">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">
@@ -218,7 +218,7 @@
             @endforeach
             <div class="grid grid-cols-2 my-8">
                 @foreach ($personalTerr as $item)
-                <div>
+                <div class="last">
                     <button wire:click="showInfo({{$item->id}})">
                         <img src="{{$item->route_img}}" alt="{{$item->img_alt}}" title="{{$item->title_alt}}"
                             class="rounded-full w-24 m-auto">

@@ -4,114 +4,44 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap');
 
-.organigram * {
-    padding: 0;
-    margin: 0;
-}
 
-.organigram ul {
-    margin-top: 20px;
-    position: relative;
-}
-
-.organigram li {
-    float: left;
-    text-align: center;
-    list-style-type: none;
-    padding: 20px 5px 0 5px;
-    position: relative;
-}
-
-.organigram li::before,
-.organigram li::after {
+.organigram::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 50%;
-    border-top: 1px solid #f80;
-    width: 50%;
-    height: 20px;
+    border-left: 5px solid #A9C52F;
+    z-index: -1;
+    height: 100vh;
 }
 
-.organigram li::after {
-    right: auto;
-    left: 50%;
-    border-left: 1px solid #f80;
+.sub {
+    border: 5px solid #A9C52F;
 }
 
-.organigram li:only-child::before,
-.organigram li:only-child::after {
-    display: none;
-}
 
-.organigram li:only-child {
-    padding-top: 0;
-}
-
-.organigram li:first-child::before,
-.organigram li:last-child::after {
-    border: 0 none;
-}
-
-.organigram li:last-child::before {
-    border-right: 1px solid #f80;
-    -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-    border-radius: 0 5px 0 0;
-}
-
-.organigram li:first-child::after {
-    -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
-    border-radius: 5px 0 0 0;
-}
-
-.organigram ul ul::before {
-    content: '';
+.sub::before {
+    content: "";
     position: absolute;
-    top: -20px;
-    left: 50%;
-    border-left: 1px solid #f80;
-    width: 0;
-    height: 20px;
-
+    z-index: -1;
+    margin-left: 3rem;
+    margin-top: -2rem;
+    width: 17rem;
+    height: 78px;
+    border: 5px solid #A9C52F;
 }
 
-.organigram li a {
-    border: 1px solid #f80;
-    padding: 1em 0.75em;
-    text-decoration: none;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85em;
-    display: inline-block;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-transition: all 500ms;
-    -moz-transition: all 500ms;
-    transition: all 500ms;
-
+.sub:last-child::before {
+    border-left: 5px solid #c52f55;
 }
 
-.organigram li a:hover {
-    border: 1px solid white;
-    color: #ddd;
-    background-color: rgba(255, 128, 0, 0.7);
-    display: inline-block;
-}
-
-.organigram>ul>li>a {
-    font-size: 1em;
-    font-weight: bold;
-}
-
-.organigram>ul>li>ul>li>a {
-    width: 8em;
-}
-
-.modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 0.5rem;
+.last:first-child::before {
+    content: "";
+    position: absolute;
+    border-top: 5px solid #A9C52F;
+    z-index: -1;
+    margin-left: 5%;
+    margin-top: -2%;
+    width: 40%;
+    height: 78px;
+    border-left: 5px solid #A9C52F;
+    border-right: 5px solid #A9C52F;
 }
