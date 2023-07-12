@@ -17,6 +17,7 @@
                 <img src="storage/personal/sebastian.png" class="rounded-full w-32 border-4 border-secondary" alt=""
                     title="">
                 <h1 class="font-bold text-2xl">Sebastian Solis</h1>
+                <h1 class="font-bold text-2xl">{{auth()->user()->id}}</h1>
                 <span>IT</span>
             </div>
             <div class="flex flex-col text-slate-100 m-10 text-center">

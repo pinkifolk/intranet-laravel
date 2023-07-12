@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Personal extends Model
 {
-    protected $fillable = ['name', 'last_name', 'job_title', 'extension', 'department_id', 'birthday', 'email', 'email_personal', 'route_img', 'password', 'estado'];
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'last_name',
+        'job_title',
+        'extension',
+        'department_id',
+        'birthday',
+        'email',
+        'email_personal',
+        'route_img',
+        'password',
+        'estado'
+    ];
 }
