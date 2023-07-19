@@ -3,7 +3,7 @@
         <input type="text" class="px-4 py-2 w-auto block border border-gray-400 rounded-lg" wire:model="search"
             name="search" placeholder="Buscar">
         <button type="button" class="bg-green-700 rounded-md px-4 text-white" data-bs-toggle="modal"
-            data-bs-target="#createProcedure">
+            data-bs-target="#createValues">
             <i class="fa-solid fa-plus"></i>
         </button>
     </div>
@@ -21,6 +21,7 @@
                 <tr>
                     <th class="py-2 text-center">N°</th>
                     <th>Titulo</th>
+                    <th>Descripción</th>
                     <th>Accion</th>
                 </tr>
             </thead>
@@ -29,11 +30,12 @@
                 <tr class="bg-white border-b-2  hover:bg-gray-200 py-2">
                     <td class="text-center">{{$loop->iteration}}</td>
                     <td class="py-2">{{$item->title}}</td>
+                    <td class="py-2">{{$item->detail}}</td>
                     <td class="py-2">
                         <button wire:click="edit({{$item->id}})" type="button" data-bs-toggle="modal"
-                            data-bs-target="#editProcedure"><i class="fa-solid fa-pen m-1"></i></button>
+                            data-bs-target="#editValues"><i class="fa-solid fa-pen m-1"></i></button>
                         <button wire:click="del({{$item->id}})" type="button" data-bs-toggle="modal"
-                            data-bs-target="#delProcedure"><i class="fa-solid fa-trash-can m-1"></i></button>
+                            data-bs-target="#delValues"><i class="fa-solid fa-trash-can m-1"></i></button>
                     </td>
                 </tr>
                 @endforeach
@@ -43,19 +45,20 @@
     @else
     <p>No existe informacion</p>
     @endif
-    <!-- Modal create -->
+
+    <!-- Modal create  -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="createProcedure" tabindex="-1" aria-labelledby="createProcedureLabel" aria-hidden="true">
+        id="createValues" tabindex="-1" aria-labelledby="createValuesLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="createProcedureLabel">Nuevo Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="createValuesLabel">Nuevo Valor</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="storeProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="storeValuesData" enctype="multipart/form-data">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Titulo</label>
@@ -68,12 +71,6 @@
                             <textarea name="description" cols="20" rows="5" wire:model="description"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"></textarea>
                             @error('description')
-                            <span class="text-red-600">{{$message}}</span>
-                            @enderror
-                            <label class="block tracking-wide font-bold mb-2">Adjunto</label>
-                            <input type="file" name="file" wire:model="file"
-                                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
-                            @error('file')
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
                         </div>
@@ -92,16 +89,16 @@
     <!-- Modal edit -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="editProcedure" tabindex="-1" aria-labelledby="editProcedureLabel" aria-hidden="true">
+        id="editValues" tabindex="-1" aria-labelledby="editValuesLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="editProcedureLabel">Editar Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="editValuesLabel">Editar Valor</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         wire:click="resert"><i class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="editProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="editValuesData" enctype="multipart/form-data">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Titulo</label>
@@ -116,12 +113,6 @@
                             @error('description')
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
-                            <label class="block tracking-wide font-bold mb-2">Adjunto</label>
-                            <input type="file" name="file" wire:model="file"
-                                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
-                            <a href="{{$old_file}}" target="_bank" title="Archivo actual" class="mt-5">
-                                <i class="fa-solid fa-file-pdf fa-2xl"></i>
-                            </a>
                         </div>
                         <!-- Modal footer -->
                         <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
@@ -135,20 +126,20 @@
             </div>
         </div>
     </div>
-    <!-- Modal delete  -->
+    <!-- Modal delete -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="delProcedure" tabindex="-1" aria-labelledby="delProcedureLabel" aria-hidden="true">
+        id="delValues" tabindex="-1" aria-labelledby="delValuesLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="delProcedureLabel">Eliminar Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="delValuesLabel">Eliminar el Valor</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
                     <h1 class="text-center text-xl p-6">🚨¿Estas seguro de eliminar este registro?🚨</h1>
-                    <form wire:submit.prevent="delProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="delValuesData" enctype="multipart/form-data">
                         @csrf
 
                 </div>
@@ -163,5 +154,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

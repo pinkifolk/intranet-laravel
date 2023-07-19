@@ -10,7 +10,6 @@ class ProceduresController extends Controller
 {
     public function index()
     {
-        $procedures_get = Procedures::get();
-        return view('admin.procedures', compact('procedures_get'));
+        return view('admin.procedures');
     }
 }

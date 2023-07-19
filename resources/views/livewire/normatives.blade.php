@@ -3,7 +3,7 @@
         <input type="text" class="px-4 py-2 w-auto block border border-gray-400 rounded-lg" wire:model="search"
             name="search" placeholder="Buscar">
         <button type="button" class="bg-green-700 rounded-md px-4 text-white" data-bs-toggle="modal"
-            data-bs-target="#createProcedure">
+            data-bs-target="#createNormative">
             <i class="fa-solid fa-plus"></i>
         </button>
     </div>
@@ -31,9 +31,9 @@
                     <td class="py-2">{{$item->title}}</td>
                     <td class="py-2">
                         <button wire:click="edit({{$item->id}})" type="button" data-bs-toggle="modal"
-                            data-bs-target="#editProcedure"><i class="fa-solid fa-pen m-1"></i></button>
+                            data-bs-target="#editNormative"><i class="fa-solid fa-pen m-1"></i></button>
                         <button wire:click="del({{$item->id}})" type="button" data-bs-toggle="modal"
-                            data-bs-target="#delProcedure"><i class="fa-solid fa-trash-can m-1"></i></button>
+                            data-bs-target="#delNormative"><i class="fa-solid fa-trash-can m-1"></i></button>
                     </td>
                 </tr>
                 @endforeach
@@ -43,19 +43,20 @@
     @else
     <p>No existe informacion</p>
     @endif
+
     <!-- Modal create -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="createProcedure" tabindex="-1" aria-labelledby="createProcedureLabel" aria-hidden="true">
+        id="createNormative" tabindex="-1" aria-labelledby="createNormativeLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="createProcedureLabel">Nuevo Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="createNormativeLabel">Nueva Normativa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="storeProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="storeNormativeData" enctype="multipart/form-data">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Titulo</label>
@@ -92,16 +93,16 @@
     <!-- Modal edit -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="editProcedure" tabindex="-1" aria-labelledby="editProcedureLabel" aria-hidden="true">
+        id="editNormative" tabindex="-1" aria-labelledby="editNormativeLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="editProcedureLabel">Editar Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="editNormativeLabel">Editar Normativa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         wire:click="resert"><i class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="editProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="editNormativeData" enctype="multipart/form-data">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Titulo</label>
@@ -135,20 +136,20 @@
             </div>
         </div>
     </div>
-    <!-- Modal delete  -->
+    <!-- Modal delete -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
-        id="delProcedure" tabindex="-1" aria-labelledby="delProcedureLabel" aria-hidden="true">
+        id="delNormative" tabindex="-1" aria-labelledby="delNormativeLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="delProcedureLabel">Eliminar Procedimiento</h1>
+                    <h1 class="modal-title fs-5" id="delNormativeLabel">Eliminar Normativa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
                     <h1 class="text-center text-xl p-6">🚨¿Estas seguro de eliminar este registro?🚨</h1>
-                    <form wire:submit.prevent="delProcedureData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="delNormativeData" enctype="multipart/form-data">
                         @csrf
 
                 </div>
@@ -163,5 +164,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

@@ -14,28 +14,44 @@
     <aside class="fixed top-0 left-0 z-40 w-64 h-screen bg-aside">
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
-                <img src="storage/personal/sebastian.png" class="rounded-full w-32 border-4 border-secondary" alt=""
-                    title="">
-                <h1 class="font-bold text-2xl">Sebastian Solis</h1>
-                <h1 class="font-bold text-2xl">{{auth()->user()->id}}</h1>
-                <span>IT</span>
+                <img src="{{asset(auth()->user()->route_img)}}" class="rounded-full w-32 border-4 border-secondary"
+                    alt="{{auth()->user()->img_alt}}" title="{{auth()->user()->title_alt}}">
+                <h1 class="font-bold text-2xl">{{auth()->user()->name ." ".auth()->user()->last_name }}</h1>
+                <span>{{auth()->user()->job_title}}</span>
             </div>
             <div class="flex flex-col text-slate-100 m-10 text-center">
                 <span>
+                    @if (auth()->user()->extension)
                     <i class="fa-solid fa-phone"></i>
-                    124
+                    {{auth()->user()->extension}}
+                    @else
+
+                    @endif
                 </span>
                 <span>
+                    @if(auth()->user()->birthday)
                     <i class="fa-solid fa-cake-candles mr-1"></i>
-                    02/05/1992
+                    {{date('d-m-Y',strtotime(auth()->user()->birthday))}}
+                    @else
+
+                    @endif
                 </span>
                 <span>
+                    @if (auth()->user()->personal_contact)
                     <i class="fa-solid fa-truck-medical mr-1"></i>
-                    +569 85158567
+                    {{auth()->user()->personal_contact}}
+                    @else
+
+                    @endif
+
                 </span>
                 <span>
+                    @if (auth()->user()->email)
                     <i class="fa-regular fa-envelope"></i>
-                    sebastian.solis@provaltec.cl
+                    {{auth()->user()->email}}
+                    @else
+
+                    @endif
                 </span>
             </div>
         </div>
@@ -43,7 +59,7 @@
     <nav class="fixed top-0 mb-5 p-4 sm:ml-64 flex w-screen bg-back z-40">
         <div class="mt-0 mr-5 w-200">
             <a href="{{route('home')}}"><img src="{{asset('img/provaltec-negro.png')}}" alt="Provaltec-SpA"
-                    title="Provaltec-SpA"></a>
+                    title="Provaltec SpA"></a>
         </div>
         <ul class="flex justify-col mt-2">
             <li>
@@ -78,11 +94,12 @@
                     class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Noticias</a>
             </li>
         </ul>
-        <div class="text-black">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        <div class="text-black relative right-1">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button class="">Salir</button>
-                <i class=" fa-solid fa-right-from-bracket"></i>
+                <button>
+                    <i class=" fa-solid fa-right-from-bracket"></i>
+                </button>
             </form>
         </div>
     </nav>
@@ -92,24 +109,29 @@
     <footer class="p-4 sm:ml-64 bg-black">
         <div class="grid grid-rows-1 gap-5 text-white">
             <div class="m-5">
-                <img class="p-3 w-80" src="img/provaltec-blanco-footer.png" alt="#">
+                <img class="p-3 w-80" src="{{asset('img/provaltec-blanco-footer.png')}}" alt="provaltec-spa"
+                    title="Provaltec Spa">
                 <div class="pl-6 pt-2">
-                    <a href="https://www.youtube.com/channel/UCW-YyJqRU3w_gu7Oo_4KrXA" target="_blank" class="px-2">
+                    <a href="https://www.youtube.com/channel/UCW-YyJqRU3w_gu7Oo_4KrXA" target="_blank" class="px-2"
+                        title="Síguenos en Youtube">
                         <i class="fa-brands fa-youtube fa-xl"></i>
                     </a>
-                    <a href="https://www.instagram.com/provaltec/" target="_blank" class="px-2">
+                    <a href="https://www.instagram.com/provaltec/" target="_blank" class="px-2"
+                        title="Síguenos en Instagram">
                         <i class="fa-brands fa-instagram fa-xl"></i>
                     </a>
-                    <a href="https://www.facebook.com/valvulastecnicas/" target="_blank" class="px-2">
+                    <a href="https://www.facebook.com/valvulastecnicas/" target="_blank" class="px-2"
+                        title="Síguenos en Facebook">
                         <i class="fa-brands fa-facebook fa-xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/company/provaltec/" target="_blank" class="px-2">
+                    <a href="https://www.linkedin.com/company/provaltec/" target="_blank" class="px-2"
+                        title="Síguenos en Linkedin">
                         <i class="fa-brands fa-linkedin fa-xl"></i>
                     </a>
                 </div>
             </div>
             <div class="text-center">
-                <p>Todo los derechos reservados</p>
+                <p>Todos los derechos reservados {{date('Y')}}</p>
             </div>
         </div>
     </footer>

@@ -19,20 +19,20 @@
 <body class="bg-back">
     <aside class="fixed top-0 left-0 z-40 w-52 h-screen bg-aside">
         <div class="mx-auto mt-8 p-2 w-200">
-            <a href="{{route('home')}}"><img src="{{asset('img/provaltec-blanco.png')}}" alt="Provaltec-SpA"
+            <a href="{{route('admin.home')}}"><img src="{{asset('img/provaltec-blanco.png')}}" alt="Provaltec-SpA"
                     title="Provaltec-SpA"></a>
         </div>
         <nav class="flex flex-col">
             <ul class="text-white">
                 <li class="my-3">
                     <i class="fa-solid fa-house mx-2"></i>
-                    <a href="#">
+                    <a href="{{route('admin.home')}}">
                         Inicio
                     </a>
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-users mx-2"></i>
-                    <a href="{{route('personal.index')}}">Personas</a>
+                    <a href="{{route('personal.index')}}">Colaboradores</a>
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-book mx-2"></i>
@@ -56,82 +56,34 @@
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-newspaper mx-2"></i>
-                    <a href="{{route('personal.index')}}">Noticias</a>
+                    <a href="{{route('news.index')}}">Noticias</a>
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-bullhorn mx-2"></i>
-                    <a href="#">Comunicados</a>
+                    <a href="{{route('releases.release')}}">Comunicados</a>
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-user-shield mx-2"></i>
-                    <a href="#">Administradores</a>
+                    <a href="{{route('adminstrators.index')}}">Administradores</a>
                 </li>
             </ul>
         </nav>
-    </aside>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+        <div class="absolute bottom-0 text-white right-0 p-2 border-t-2 border-slate-500 w-full">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button>
+                    <i class=" fa-solid fa-right-from-bracket"></i>
                 </button>
-                cc
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    vds
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
-
-        <main class="p-10 sm:ml-52">
-            @yield('content')
-        </main>
+            </form>
+        </div>
+    </aside>
+    <main class="p-10 sm:ml-52">
+        @yield('content')
+    </main>
     </div>
 
 </body>
+@yield('js')
 <!-- Script -->
 @livewireScripts
 @vite('resources/js/app.js')

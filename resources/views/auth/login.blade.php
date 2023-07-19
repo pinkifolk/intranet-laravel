@@ -40,7 +40,7 @@
             <button class="text-center bg-action px-24 py-2 rounded-md text-white font-bold hover:bg-hover"
                 type="submit">Ingresar</button>
         </form>
-        @error('status')
+        @error('message')
         <span class="text-red-700">
             <strong>{{ $message }}</strong>
         </span>
