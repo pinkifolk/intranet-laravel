@@ -4,6 +4,14 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap');
 
+.full-bg {
+    background: url('https://b2b.provaltec.cl/admin/images/imagen-fondo-copia.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .short {
     white-space: nowrap;
     text-overflow: ellipsis;

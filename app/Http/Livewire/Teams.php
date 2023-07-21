@@ -31,7 +31,7 @@ class Teams extends Component
         $personalSales = User::where('type', 3)->get();
         $adm = User::where('department_id', 1)->where('type', 1)->get();
         $personalAdm = User::where('type', 3)->get();
-        $ope = User::where('department_id', 4)->whereIn('type', [1, 2])->get();
+        $ope = User::where('department_id', 5)->whereIn('type', [1, 2])->get();
         $personalOpe = User::where('type', 3)->get();
         $salesTerr = User::where('department_id', 6)->whereIn('type', [1, 2])->get();
         $personalTerr = User::where('type', 3)->get();
