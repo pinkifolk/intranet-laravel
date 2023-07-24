@@ -34,7 +34,7 @@
 
     @endforeach
     <div class="lg:flex p-5">
-        <div class="grid grid-cols-4 gap-5">
+        <div class="grid grid-cols-4 gap-5 p-5">
             @foreach ($news_four_first as $item)
             <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300">
                 <div class="">
