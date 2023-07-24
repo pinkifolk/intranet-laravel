@@ -429,7 +429,7 @@
                                 <div class="text-right">
                                     <button type="button" wire:click="delimg"><i class="fa-solid fa-x"></i></button>
                                 </div>
-                                <img src="/{{$file}}" alt="a" class="w-52 h-52">
+                                <img src="/intranet/{{$file}}" alt="a" class="w-52 h-52">
                             </div>
                             @else
                             <label class="block tracking-wide font-bold mb-2">
