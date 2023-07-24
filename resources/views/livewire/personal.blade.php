@@ -237,7 +237,6 @@
                                     @error('isAdmin')
                                     <span class="text-red-600">{{$message}}</span>
                                     @enderror
-                                    {{$isAdmin}}
                                 </div>
                             </div>
                         </div>
@@ -477,7 +476,7 @@
 
                 </div>
                 <!-- Modal footer -->
-                <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                <div class="px-4 py-2 flex justify-end items-center space-x-4">
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
                         data-bs-dismiss="modal" type="button">Cancelar</button>
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition" type="submit"

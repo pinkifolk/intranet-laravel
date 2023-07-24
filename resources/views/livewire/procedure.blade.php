@@ -70,7 +70,7 @@
                             @error('description')
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
-                            <label class="block tracking-wide font-bold mb-2">Adjunto</label>
+                            <label class="block tracking-wide font-bold mb-2 border-b-2">Adjunto</label>
                             <input type="file" name="file" wire:model="file"
                                 class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
                             @error('file')
@@ -78,7 +78,7 @@
                             @enderror
                         </div>
                         <!-- Modal footer -->
-                        <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                        <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
                                 data-bs-dismiss="modal" type="button">Cancelar</button>
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
@@ -124,7 +124,7 @@
                             </a>
                         </div>
                         <!-- Modal footer -->
-                        <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                        <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
                                 data-bs-dismiss="modal" type="button" wire:click="resert">Cancelar</button>
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
@@ -153,7 +153,7 @@
 
                 </div>
                 <!-- Modal footer -->
-                <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                <div class="px-4 py-2 flex justify-end items-center space-x-4">
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
                         data-bs-dismiss="modal" type="button">Cancelar</button>
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition" type="submit"

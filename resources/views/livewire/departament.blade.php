@@ -66,7 +66,7 @@
                             @enderror
                         </div>
                         <!-- Modal footer -->
-                        <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                        <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
                                 data-bs-dismiss="modal" type="button">Cancelar</button>
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
@@ -100,7 +100,7 @@
                             @enderror
                         </div>
                         <!-- Modal footer -->
-                        <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                        <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
                                 data-bs-dismiss="modal" type="button" wire:click="resert">Cancelar</button>
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
@@ -129,7 +129,7 @@
 
                 </div>
                 <!-- Modal footer -->
-                <div class="px-4 py-2 border-b border-t-gray-500 flex justify-end items-center space-x-4">
+                <div class="px-4 py-2 flex justify-end items-center space-x-4">
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
                         data-bs-dismiss="modal" type="button">Cancelar</button>
                     <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition" type="submit"
