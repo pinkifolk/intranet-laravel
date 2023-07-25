@@ -60,9 +60,13 @@
                     class="font-medium block py-2 pl-7 pr-7 hover:border-b-4 border-b-action">Noticias</a>
             </li>
         </ul>
-        <div class="text-black">
-            <button class="">Salir</button>
-            <i class=" fa-solid fa-right-from-bracket"></i>
+        <div class="text-black relative right-1">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button>
+                    <i class=" fa-solid fa-right-from-bracket"></i>
+                </button>
+            </form>
         </div>
     </nav>
 
