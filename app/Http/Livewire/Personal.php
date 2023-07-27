@@ -61,7 +61,7 @@ class Personal extends Component
             'email_personal' => $this->emailPersonal,
             'personal_contact' => $this->emergencyContact,
             'img_alt' => strtolower($this->name . "-" . $this->lastName),
-            'title_alt' => strtolower($this->name . " " . $this->lastName),
+            'title_alt' => $this->name . " " . $this->lastName,
             'route_img' => $url_image,
             'password' => Hash::make($this->password),
             'created_at' => Carbon::now(),

@@ -6,7 +6,8 @@
     <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300">
         <div class=" lg:flex p-5">
             <div class="flex flex-col justify-between">
-                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="">
+                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="{{$item->slug}}"
+                    title="{{$item->title}}">
                 <div class="flex flex-col justify-start">
                     <h5 class="p-2 text-xl font-bold">{{$item->title}}</h5>
                     <div class="text-base p-2">
@@ -19,7 +20,8 @@
     @else
     <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300">
         <div class=" lg:flex p-5">
-            <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="">
+            <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="{{$item->slug}}"
+                title="{{$item->title}}">
             <div class="flex flex-col justify-between">
                 <div class="flex flex-col justify-start mx-2">
                     <h5 class="p-2 text-xl font-bold font-title">{{$item->title}}</h5>
@@ -31,16 +33,16 @@
         </div>
     </a>
     @endif
-
     @endforeach
     <div class="lg:flex p-5">
-        <div class="grid grid-cols-4 gap-5">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 bg-white border border-gray-200 rounded-lg shadow">
             @foreach ($news_four_first as $item)
-            <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300">
-                <div class="">
-                    <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="">
+            <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300 hover:rounded-lg p-2">
+                <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="{{$item->slug}}"
+                    title="{{$item->title}}">
+                <div class="flex flex-col space-y-8">
                     <h5 class="p-2 text-xl font-bold">{{$item->title}} </h5>
-                    <span class="text-xs text-slate-600 p-2">
+                    <span class="text-xs text-slate-600  p-2">
                         Pubicado:
                         <i class="fa-regular fa-clock fa-sm"></i>
                         {{date('d-m-Y',strtotime($item->created_at))}}

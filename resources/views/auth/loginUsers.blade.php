@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <div class="flex h-screen">
-        <div class="bg-back w-1/2">
+    <div class="h-screen md:flex">
+        <div class="bg-back w-full md:w-1/2">
             <div class="flex flex-col items-center justify-center h-screen">
                 <div>
                     <i class="fa-solid fa-user fa-2xl"></i>
@@ -46,7 +46,7 @@
                 </form>
             </div>
         </div>
-        <div class="full-bg">
+        <div class="hidden md:block full-bg">
             <div class="mt-16 ml-20">
                 <img src="img/provaltec-negro.png" alt="Provaltec" title="Provaltec">
             </div>
