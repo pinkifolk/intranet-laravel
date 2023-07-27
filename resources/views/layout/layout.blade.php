@@ -153,7 +153,7 @@
             </div>
         </div>
     </footer>
-    @vite('resources/js/app.js')
+    <link rel="stylesheet" href="{{asset('build/assets/app-5131193a.js')}}">
 
 </body>
 
