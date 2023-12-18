@@ -13,7 +13,12 @@
         <div class="p-2" type="button"><i class="fa-solid fa-xmark"></i></div>
     </div>
     @endif
-
+    @if (session()->has('error'))
+    <div class="flex justify-between mt-4 bg-message bg-red-500 rounded-md text-white cursor-pointer" id="message">
+        <div class="p-2 ml-3 font-bold italic">{{session('error')}}</div>
+        <div class="p-2" type="button"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    @endif
     @if ($resultSearch->count())
     <div class="relative overflow-auto shadow-xl border-gray-400 rounded-md mt-5">
         <table class="w-full text-sm text-left">
@@ -43,7 +48,7 @@
     @else
     <p>No existe informacion</p>
     @endif
-    <!-- Modal create -->
+   <!-- Modal create -->
     <div wire:ignore.self
         class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal"
         id="createDepart" tabindex="-1" aria-labelledby="createDepartLabel" aria-hidden="true">
@@ -55,7 +60,7 @@
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="storeDepartData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="storeDepartData" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Nombre</label>
@@ -64,7 +69,19 @@
                             @error('name')
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
+                            <label class="block tracking-wide font-bold mb-2">Objetivos y funciones</label>
+                            <textarea name="description" cols="20" rows="5" wire:model="description"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"></textarea>
+                            @error('description')
+                            <span class="text-red-600">{{$message}}</span>
+                            @enderror
                         </div>
+                        <label class="block tracking-wide font-bold mb-2">Imagen</label>
+                        <input type="file" name="file" wire:model="file"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
+                        @error('file')
+                        <span class="text-red-600">{{$message}}</span>
+                        @enderror
                         <!-- Modal footer -->
                         <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
@@ -89,7 +106,7 @@
                         wire:click="resert"><i class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="editDepartData" enctype="multipart/form-data">
+                    <form wire:submit.prevent="editDepartData" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="grid">
                             <label class="block tracking-wide font-bold mb-2">Titulo</label>
@@ -98,16 +115,37 @@
                             @error('name')
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
+                            <label class="block tracking-wide font-bold mb-2">Objetivos y funciones</label>
+                            <textarea name="description" cols="20" rows="5" wire:model="description"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"></textarea>
+                            @error('description')
+                            <span class="text-red-600">{{$message}}</span>
+                            @enderror
                         </div>
-                        <!-- Modal footer -->
-                        <div class="px-4 py-2 flex justify-end items-center space-x-4">
-                            <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
-                                data-bs-dismiss="modal" type="button" wire:click="resert">Cancelar</button>
-                            <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
-                                type="submit" data-bs-dismiss="modal">Guardar</button>
+                        <label class="block tracking-wide font-bold mb-2">Imagen</label>
+                        @if ($file_old)
+                        <div class="bg-gray-200">
+                            <div class="text-right">
+                                <button type="button" wire:click="delimg"><i class="fa-solid fa-x"></i></button>
+                            </div>
+                            <img src="{{asset($file_old)}}" alt="a" class="w-screen h-52">
                         </div>
-                    </form>
+                        @else
+                        <input type="file" name="file" wire:model="file"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
+                        @error('file')
+                        <span class="text-red-600">{{$message}}</span>
+                        @enderror
+                        @endif
                 </div>
+                <!-- Modal footer -->
+                <div class="px-4 py-2 flex justify-end items-center space-x-4">
+                    <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                        data-bs-dismiss="modal" type="button" wire:click="resert">Cancelar</button>
+                    <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition" type="submit"
+                        data-bs-dismiss="modal">Guardar</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -118,12 +156,13 @@
         <div class="modal-dialog">
             <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
                 <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
-                    <h1 class="modal-title fs-5" id="delDepartLabel">Eliminar Beneficio</h1>
+                    <h1 class="modal-title fs-5" id="delDepartLabel">Eliminar Departamento</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
                     <h1 class="text-center text-xl p-6">🚨¿Estas seguro de eliminar este registro?🚨</h1>
+                    <p>Antes de eliminar este departamento debe cambiar a los colaboradores que tengan este departamento, de lo contrario serán eliminados</p>
                     <form wire:submit.prevent="delDepartData" enctype="multipart/form-data">
                         @csrf
 
@@ -139,4 +178,12 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    @if (count($errors) > 0)
+    <script type="text/javascript">
+        $(document).ready(function() {
+             $('#createDepart').modal('show');
+        });
+    </script>
+  @endif
 </div>

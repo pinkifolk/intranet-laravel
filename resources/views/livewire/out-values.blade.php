@@ -30,7 +30,7 @@
                 <tr class="bg-white border-b-2  hover:bg-gray-200 py-2">
                     <td class="text-center">{{$loop->iteration}}</td>
                     <td class="py-2">{{$item->title}}</td>
-                    <td class="py-2">{{$item->detail}}</td>
+                    <td class="py-2">{!!$item->detail!!}</td>
                     <td class="py-2">
                         <button wire:click="edit({{$item->id}})" type="button" data-bs-toggle="modal"
                             data-bs-target="#editValues"><i class="fa-solid fa-pen m-1"></i></button>
@@ -154,4 +154,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
+</script>
 </div>

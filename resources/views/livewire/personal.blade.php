@@ -13,7 +13,12 @@
         <div class="p-2" type="button"><i class="fa-solid fa-xmark"></i></div>
     </div>
     @endif
-
+    @if (session()->has('error'))
+    <div class="flex justify-between mt-4 bg-message bg-red-500 rounded-md text-white cursor-pointer" id="message">
+        <div class="p-2 ml-3 font-bold italic">{{session('error')}}</div>
+        <div class="p-2" type="button"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    @endif
     @if ($resultSearch->count())
     <div class="relative overflow-auto shadow-xl border-gray-400 rounded-md mt-5">
         <table class="w-full text-sm text-left">
@@ -50,6 +55,8 @@
                     <td class="py-2">
                         <button wire:click="edit({{$item->id}})" type="button" data-bs-toggle="modal"
                             data-bs-target="#editPersonal"><i class="fa-solid fa-pen m-1"></i></button>
+                        <button wire:click="resetId({{$item->id}})" title="Resetear contraseña" type="button"
+                            data-bs-toggle="modal" data-bs-target="#reset"><i class="fa-solid fa-key"></i></button>
                         <button wire:click="del({{$item->id}})" type="button" data-bs-toggle="modal"
                             data-bs-target="#delUser"><i class="fa-solid fa-trash-can m-1"></i></button>
                     </td>
@@ -73,8 +80,8 @@
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="storePersonalData" enctype="multipart/form-data">
-                        @csrf
+                    <form wire:submit.prevent="storePersonalData" enctype="multipart/form-data" method="POST">
+                        @csrf @method('POST')
                         <div class="md:flex md:items-center mb-4">
                             <div class="px-3">
                                 <label class="block tracking-wide font-bold mb-2">Tipo</label>
@@ -83,9 +90,10 @@
                                 <select name="type" wire:model="type"
                                     class="block w-full bg-gray-200 text-gray-800 border border-gray-200 rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option value="0">Seleccione</option>
-                                    <option value="1">Gerente</option>
-                                    <option value="2">Jefe de Area</option>
-                                    <option value="3">Trabajador</option>
+                                    <option value="1">Director</option>
+                                    <option value="2">Gerente</option>
+                                    <option value="3">Jefe de Area</option>
+                                    <option value="4">Trabajador</option>
                                 </select>
 
                                 @error('type')
@@ -187,7 +195,7 @@
                                 <span class="text-red-600">{{$message}}</span>
                                 @enderror
                             </div>
-                            <div class="w-full md:w-1/3 px-3">
+                             <div class="w-full md:w-1/3 px-3">
                                 <label class="block tracking-wide font-bold mb-2">
                                     Telefono Emergencia
                                 </label>
@@ -196,6 +204,18 @@
                                     type="text" name="emergencyContact" placeholder="+569 9124 4523"
                                     wire:model="emergencyContact">
                                 @error('emergencyContact')
+                                <span class="text-red-600">{{$message}}</span>
+                                @enderror
+                            </div>
+                            <div class="w-full md:w-1/3 px-3">
+                                <label class="block tracking-wide font-bold mb-2">
+                                    Telefono Personal o Empresa
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    type="text" name="personalContact" placeholder="+569 9124 4523"
+                                    wire:model="personalContact">
+                                @error('personalContact')
                                 <span class="text-red-600">{{$message}}</span>
                                 @enderror
                             </div>
@@ -254,7 +274,7 @@
                         <!-- Modal footer -->
                         <div class="px-4 py-2 flex justify-end items-center space-x-4">
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
-                                data-bs-dismiss="modal" type="button">Cancelar</button>
+                                data-bs-dismiss="modal" type="button" wire:click="resert()">Cancelar</button>
                             <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-action transition"
                                 type="submit" data-bs-dismiss="modal">Guardar</button>
                         </div>
@@ -278,8 +298,8 @@
                             class="fa-solid fa-x"></i></button>
                 </div>
                 <div class="p-4">
-                    <form wire:submit.prevent="editPersonalData" enctype="multipart/form-data">
-                        @csrf
+                    <form wire:submit.prevent="editPersonalData" enctype="multipart/form-data" method="POST">
+                        @csrf @method('POST')
                         <div class="md:flex md:items-center mb-4">
                             <div class="px-3">
                                 <label class="block tracking-wide font-bold mb-2">Tipo</label>
@@ -288,9 +308,10 @@
                                 <select name="type" wire:model="type"
                                     class="block w-full bg-gray-200 text-gray-800 border border-gray-200 rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option value="0">Seleccione</option>
-                                    <option value="1">Gerente</option>
-                                    <option value="2">Jefe de Area</option>
-                                    <option value="3">Trabajador</option>
+                                    <option value="1">Director</option>
+                                    <option value="2">Gerente</option>
+                                    <option value="3">Jefe de Area</option>
+                                    <option value="4">Trabajador</option>
                                 </select>
 
                                 @error('type')
@@ -404,6 +425,18 @@
                                 <span class="text-red-600">{{$message}}</span>
                                 @enderror
                             </div>
+                            <div class="w-full md:w-1/3 px-3">
+                                <label class="block tracking-wide font-bold mb-2">
+                                    Telefono Personal o Empresa
+                                </label>
+                                <input
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    type="text" name="personalContact" placeholder="+569 9124 4523"
+                                    wire:model="personalContact">
+                                @error('personalContact')
+                                <span class="text-red-600">{{$message}}</span>
+                                @enderror
+                            </div>
                         </div>
                         <div class="flex flex-wrap mb-4">
                             <div class="w-full md:w-1/3 px-3">
@@ -486,4 +519,44 @@
             </div>
         </div>
     </div>
+    {{-- Modal reset password --}}
+    <div wire:ignore.self
+        class="fixed hidden z-40 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal" id="reset"
+        tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="mx-auto shadow-xl rounded-md bg-white max-w-xl">
+                <div class="flex justify-between items-center bg-aside text-white text-xl rounded-t-md px-4 py-2">
+                    <h1 class="modal-title fs-5" id="reset">Resetear Contraseña</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="fa-solid fa-x"></i></button>
+                </div>
+                <div class="p-4">
+                    <h1 class="text-center text-xl p-6 pb-0">Enviaremos un correo a <b>{{$email}}</b> para que pueda
+                        cambiar
+                        su
+                        contraseña</h1>
+                    <p class="text-center">¿Quieres enviar el correo?</p>
+                    <form wire:submit.prevent="resetPass">
+                        @csrf
+
+                </div>
+                <!-- Modal footer -->
+                <div class="px-4 py-2 flex justify-end items-center space-x-4">
+                    <button class="bg-aside text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                        data-bs-dismiss="modal" type="button">Cancelar</button>
+                    <button class="bg-aside text-white px-4 py-2 rounded-md  hover:bg-action transition" type="submit"
+                        data-bs-dismiss="modal">Enviar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    @if (count($errors) > 0)
+    <script type="text/javascript">
+        $(document).ready(function() {
+             $('#createPersonal').modal('show');
+        });
+    </script>
+  @endif
 </div>

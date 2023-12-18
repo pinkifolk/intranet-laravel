@@ -19,7 +19,7 @@
                 <td class="text-center">{{$loop->iteration}}</td>
                 <td class="py-2">{{$item->name}}</td>
                 <td class="py-2">{{$item->last_name}}</td>
-                <td class="py-2">{{date('d-m-Y h:m:s',strtotime($item->created_at))}}</td>
+                <td class="py-2">{{date('d-m-Y',strtotime($item->created_at))}}</td>
                 <td class="py-2">
                     @if ($item->estado == 1)
                     <span class="absolute h-3 w-3 rounded-full bg-red-500 ml-4 -mt-1">

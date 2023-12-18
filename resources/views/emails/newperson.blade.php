@@ -22,7 +22,7 @@
             <tr>
                 <td colspan="4" style="text-align: center;">
                     <div class="container-header">
-                        <img style="width: 300px; height:90px;" src="{{asset('img/provaltec-negro.png')}}">
+                        <img style="width: 350px" src="{{asset('img/LOGO-PROVALTEC.png')}}">
                     </div>
                 </td>
             </tr>
@@ -36,22 +36,23 @@
             <tr>
                 <td colspan="4" style="padding-left: 52px; padding-right: 52px;">
                     <h1 style="font-size: 24px; color: #353535; font-weight: 600;font-stretch: normal; font-style:
-                        normal; line-height: normal; letter-spacing: 1.54px; text-align: center;">Cambio de contraseña
-                    </h1>
+                        normal; line-height: normal; letter-spacing: 1.54px; text-align: center;">Bienvenido (a)</h1>
                 </td>
             </tr>
             <tr>
                 <td colspan="4" style="padding-left: 52px; padding-right: 52px;">
-                    <p style="color: #616161; font-size: 16px; line-heigh=t: 1.83; letter-spacing: 0.77px; text-align:
-                        center;">Hola Nombre, los administradores de nuestro portal te han enviado un enlace para que
-                        puedas cambiar la contraseña.
-                        Presiona el botón cambiar y podrás realizar el cambio</p>
+                    <p style="color: #616161; font-size: 12px; line-heigh=t: 1.83; letter-spacing: 0.77px; text-align:
+                        center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, hic. Autem
+                        eligendi sed aspernatur facilis error laboriosam, tempora delectus sint odio voluptatum iusto
+                        quibusdam nulla, nesciunt impedit voluptates animi totam.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, hic. Autem
+                        eligendi sed aspernatur facilis error laboriosam, tempora delectus sint odio voluptatum iusto
+                        quibusdam nulla, nesciunt impedit voluptates animi totam.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan="100%" style="padding: 12px 50px 12px 50px; text-align:center">
-                    <a href="#"
-                        style="padding: 6px 66px; background-color: #283739; color: white; font-weight: bold; border:0; text-decoration:none">Cambiar</a>
+                <td colspan="100%" style="padding-left: 50px; padding-right: 50px;">
+                    <img style="width: 500px; height:500px;" src="#">
                 </td>
             </tr>
             <tr>
@@ -81,11 +82,11 @@
             </tr>
             <tr>
                 <td>
-                    <img style="padding-left: 52px; padding-top:40px; width: 130px; height:40px;"
+                    <img style="padding-left: 52px; width: 150px; height:40px;"
                         src="{{asset('img/provaltec-negro.png')}}">
                 </td>
                 <td>
-                    <div style="padding-left: 10px;padding-top:40px;">
+                    <div style="padding-left: 10px;">
                         <a href="https://www.youtube.com/channel/UCW-YyJqRU3w_gu7Oo_4KrXA" target="_blank"
                             style="padding: 0.8rem; color:black; text-decoration:none;">
                             <i class="fa-brands fa-youtube fa-xl"></i>

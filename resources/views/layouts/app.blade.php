@@ -56,6 +56,10 @@
                     <a href="{{route('department.index')}}">Departamentos</a>
                 </li>
                 <li class="my-3">
+                    <i class="fa-regular fa-image mx-2"></i>
+                    <a href="{{route('gallery.admin')}}">Galeria</a>
+                </li>
+                <li class="my-3">
                     <i class="fa-solid fa-newspaper mx-2"></i>
                     <a href="{{route('news.index')}}">Noticias</a>
                 </li>
@@ -66,6 +70,10 @@
                 <li class="my-3">
                     <i class="fa-solid fa-user-shield mx-2"></i>
                     <a href="{{route('adminstrators.index')}}">Administradores</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-arrow-left mx-2"></i>
+                    <a href="{{route('home')}}">Volver al Portal</a>
                 </li>
             </ul>
         </nav>

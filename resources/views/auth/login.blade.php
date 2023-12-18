@@ -15,7 +15,7 @@
         <div class="">
             <img src="img/provaltec-negro.png" alt="Provaltec" title="Provaltec">
         </div>
-        <form action="{{ route('login.admin') }}" method="POST">
+        <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="m-1">
                 <input type="email" name="email"

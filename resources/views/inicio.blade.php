@@ -35,7 +35,7 @@
     @endif
     @endforeach
     <div class="lg:flex p-5">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 bg-white border border-gray-200 rounded-lg shadow">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 bg-white border border-gray-200 rounded-lg shadow ">
             @foreach ($news_four_first as $item)
             <a href="{{route('post.show',$item->slug)}}" class="hover:bg-slate-300 hover:rounded-lg p-2">
                 <img class="w-full object-cover h-80 rounded-lg lg:w-84" src="{{$item->imagen}}" alt="{{$item->slug}}"

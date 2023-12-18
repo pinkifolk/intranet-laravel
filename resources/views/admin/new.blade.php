@@ -30,6 +30,12 @@
 @section('js')
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('content');
+     CKEDITOR.plugins.addExternal ( 'justify', '{{asset("/build/assets/justify/plugin.js")}}' );
+     CKEDITOR.replace('content',{
+        height: 300,
+        filebrowserUploadUrl: "{{route('admin.upload',['_token' => csrf_token()])}}",
+        filebrowserUploadMethod:'form',
+        extraPlugins: 'justify',
+    });
 </script>
 @endsection

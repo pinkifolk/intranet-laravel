@@ -22,7 +22,7 @@
             <tr>
                 <td colspan="4" style="text-align: center;">
                     <div class="container-header">
-                        <img style="width: 300px; height:90px;" src="{{asset('img/provaltec-negro.png')}}">
+                        <img style="width: 350px" src="{{asset('img/LOGO-PROVALTEC.png')}}">
                     </div>
                 </td>
             </tr>
@@ -36,23 +36,13 @@
             <tr>
                 <td colspan="4" style="padding-left: 52px; padding-right: 52px;">
                     <h1 style="font-size: 24px; color: #353535; font-weight: 600;font-stretch: normal; font-style:
-                        normal; line-height: normal; letter-spacing: 1.54px; text-align: center;">Feliz Cumpleaños</h1>
+                        normal; line-height: normal; letter-spacing: 1.54px; text-align: center;">{{$title}}</h1>
                 </td>
             </tr>
             <tr>
                 <td colspan="4" style="padding-left: 52px; padding-right: 52px;">
-                    <p style="color: #616161; font-size: 12px; line-heigh=t: 1.83; letter-spacing: 0.77px; text-align:
-                        center;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, hic. Autem
-                        eligendi sed aspernatur facilis error laboriosam, tempora delectus sint odio voluptatum iusto
-                        quibusdam nulla, nesciunt impedit voluptates animi totam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, hic. Autem
-                        eligendi sed aspernatur facilis error laboriosam, tempora delectus sint odio voluptatum iusto
-                        quibusdam nulla, nesciunt impedit voluptates animi totam.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="100%" style="padding-left: 50px; padding-right: 50px;">
-                    <img style="width: 500px; height:500px;" src="#">
+                    <p style="color: #616161; font-size: 16px; line-heigh=t: 1.83; letter-spacing: 0.77px; text-align:
+                        justify;">{!!$body!!}</p>
                 </td>
             </tr>
             <tr>
@@ -66,14 +56,14 @@
                     font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.89; letter-spacing:
                     0.58px; color: #898989;">
                     <p style="text-align: justify;">Este correo electrónico se ha generado automáticamente, por favor no
-                        responder.
-                        Este correo electrónico y cualquier documento adjunto puede contener información confidencial,
-                        dirigida para el
-                        conocimiento y uso exclusivo de la persona o entidad arriba mencionadas. Si usted no es el
-                        destinatario, se le informa
-                        que cualquier divulgación, distribución o copia de esta comunicación está estrictamente
-                        prohibida. Si usted ha recibido
-                        este correo electrónico por error, agradeceremos notificarnos respondiendo a este mensaje y
+                        responder. Este correo electrónico y cualquier
+                        documento adjunto puede contener información sobre los trabajadores internos, dirigida para el
+                        conocimiento y uso
+                        exclusivo de la persona o entidad arriba mencionadas. Si usted no es el destinatario, se le
+                        informa que cualquier
+                        divulgación, distribución o copia de esta comunicación está estrictamente prohibida. Si usted ha
+                        recibido este correo
+                        electrónico por error, agradeceremos notificarnos al correo contactoweb@provaltec.cl y
                         eliminando el original y
                         cualquier copia o impresión de este. Gracias.
 
