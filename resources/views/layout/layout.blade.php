@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="favicon.ico" sizes="32x32">
     @vite('resources/css/app.scss')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
@@ -15,12 +16,12 @@
     <aside class="hidden md:block fixed top-0 left-0 z-40 w-64 h-screen bg-aside">
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
-                <img src="{{asset(auth()->user()->route_img)}}" class="rounded-full w-32 border-4 border-secondary"
+                <img src="{{asset(auth()->user()->route_img)}}" class="rounded-full border-4 border-secondary" style="width:8rem; height:8rem;"
                     alt="{{auth()->user()->img_alt}}" title="{{auth()->user()->title_alt}}">
                 <h1 class="font-bold text-2xl">{{auth()->user()->name ." ".auth()->user()->last_name }}</h1>
                 <span>{{auth()->user()->job_title}}</span>
             </div>
-            <div class="flex flex-col text-slate-100 m-10 text-center">
+            <div class="flex flex-col text-slate-100 text-center" style="margin-bottom:2.4rem">
                 <span title="Anexo telefónico">
                     @if (auth()->user()->extension)
                     <i class="fa-solid fa-phone"></i>
@@ -37,10 +38,19 @@
 
                     @endif
                 </span>
-                <span title="Contacto de Emergencia">
+                <span title="Numero Personal o Empresa">
                     @if (auth()->user()->personal_contact)
-                    <i class="fa-solid fa-truck-medical mr-1"></i>
+                    <i class="fa-solid fa-mobile-screen-button mr-1"></i>
                     {{auth()->user()->personal_contact}}
+                    @else
+
+                    @endif
+
+                </span>
+                <span title="Contacto de Emergencia">
+                    @if (auth()->user()->emergency_contact)
+                    <i class="fa-solid fa-truck-medical mr-1"></i>
+                    {{auth()->user()->emergency_contact}}
                     @else
 
                     @endif
@@ -75,6 +85,9 @@
                     <a href="{{route('profile')}}"
                         class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Perfil</a>
                 </li>
+                <li>
+                    <a href="{{route('teams')}}" class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Contactos</a>
+                </li>
                 <li> <a href="#" id="openSub" class="font-medium block py-2 pl-7 pr-7 peer">Nosotros <div
                             class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i>
                         </div></a>
@@ -92,14 +105,33 @@
                         <li><a href="{{route('our-values')}}"
                                 class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Nuestros
                                 Valores</a></li>
-                        <li><a href="{{route('teams')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Equipo</a>
+                        <li>
+                            <a href="{{route('teams')}}"
+                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Equipo</a>
+                            <ul
+                                class="hidden md:peer-hover:flex bg-action absolute top-40 left-44 md:hover:flex flex-col rounded-md w-64">
+                                <li>
+                                    @foreach ($dep as $item)
+                                    <a href="{{route('department',$item)}}"
+                                        class="font-medium block py-2 pl-7 pr-7 hover:text-aside">{{$item->name}}</a>
+                                    @endforeach
+
+                                </li>
+                            </ul>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="{{route('gallery')}}" class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Galeria</a>
                 </li>
                 <li><a href="{{route('post')}}"
                         class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Noticias</a>
                 </li>
+                @if(auth()->user()->is_admin === 1)
+                <li><a href="{{route('admin.home')}}"class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Configuración</a></li>
+                @else
+                
+                @endif
                 <li class="md:hidden">
                     <div class="text-white md:text-black font-medium block py-2 pl-7 pr-7 text-right">
                         <form action="{{ route('logout') }}" method="POST">
@@ -153,7 +185,7 @@
             </div>
         </div>
     </footer>
-    <link rel="stylesheet" href="{{asset('build/assets/app-5131193a.js')}}">
+    <script src="{{asset('build/assets/app-03.js')}}"></script>
 
 </body>
 

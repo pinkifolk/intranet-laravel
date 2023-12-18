@@ -2,20 +2,25 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\resetPassword;
 use App\Models\Department;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\welcomeNewPersonToPortal;
 
 class Personal extends Component
 {
     use WithFileUploads;
 
     public $search;
-    public $type, $name, $lastName, $jobTitle, $extension, $department, $birthday, $email, $emailPersonal, $emergencyContact, $password, $repitPassword, $file, $edit_id, $old_file;
+    public $type, $name, $lastName, $jobTitle, $extension, $department, $birthday, $email, $emailPersonal, $emergencyContact,$personalContact, $password, $repitPassword, $file, $edit_id, $old_file;
     public $isAdmin = false;
+    public $token;
     public $dateType;
     protected $rules = [
         'type' => 'required',
@@ -28,49 +33,92 @@ class Personal extends Component
         'emailPersonal' => 'required|email',
         'password' => 'required',
         'repitPassword' => 'required|same:password',
-        'isAdmin' => 'required',
-        'file' => 'file'
+        'file' => 'file|mimes:jpg,jpeg,png,bmp,tiff'
     ];
     function delimg()
     {
         $this->file = '';
     }
+    function resetId($id)
+    {
+        $userReset = User::find($id);
+        $this->id_reset = $userReset->id;
+        $this->email = $userReset->email;
+    }
+    function resetPass()
+    {
+        try{
+             $userReset = User::find($this->id_reset);
+            $token = app('auth.password.broker')->createToken($userReset);
+            DB::table('password_resets')->insert([
+                'email' => $userReset->email,
+                'token' => $token,
+                'created_at' => Carbon::now()
+            ]);
+            Mail::to($userReset->email)->send(new resetPassword($userReset->name, $userReset->last_name, $token, $userReset->email));
+            session()->flash('message', 'Mensaje enviado correctamente');     
+        }catch (\Exception $e) {
+            session()->flash('error', $e);
+        }
+       
+    }
     public function storePersonalData()
     {
         $this->validate();
-        $url_base_file = "public/personal";
-        $url_public_file = "storage/personal/";
+         try {
+            
+            $url_base_file = "public/personal";
+            $url_public_file = "storage/personal/";
 
-        if (empty($this->file)) {
-            $url_image = null;
-        } else {
-            $name = $this->file->store($url_base_file);
-            $storageName = basename($name);
-            $url_image = $url_public_file . $storageName;;
+            if (empty($this->file)) {
+                session()->flash('error', 'El campo imagen es obligatorio.');
+            } else {
+                $name = $this->file->store($url_base_file);
+                $storageName = basename($name);
+                $url_image = $url_public_file . $storageName;;
+            }
+            if(empty($this->isAdmin)){
+                $this->isAdmin= 0;
+            }
+            if(User::where('email', '=', $this->email)->first()){
+                   session()->flash('error', 'El correo ingresado ya está registrado');
+            }else{
+                 User::insert([
+                'name' => $this->name,
+                'last_name' => $this->lastName,
+                'job_title' => $this->jobTitle,
+                'extension' => $this->extension,
+                'department_id' => $this->department,
+                'type' => $this->type,
+                'birthday' => $this->birthday,
+                'email' => $this->email,
+                'email_personal' => $this->emailPersonal,
+                'emergency_contact' => $this->emergencyContact,
+                'personal_contact' => $this->personalContact,
+                'img_alt' => strtolower($this->name . "-" . $this->lastName),
+                'title_alt' => $this->name . " " . $this->lastName,
+                'route_img' => $url_image,
+                'password' => Hash::make($this->password),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => $this->isAdmin,
+                'estado' => 0
+
+            ]);
+            $user = User::where('email', '=', $this->email)->first();
+            $token = app('auth.password.broker')->createToken($user);
+            DB::table('password_resets')->insert([
+                'email' => $user->email,
+                'token' => $token,
+                'created_at' => Carbon::now()
+            ]);
+            Mail::to($user->email)->send(new welcomeNewPersonToPortal($user->name, $user->last_name, $token, $user->email));
+            session()->flash('message', 'Colaborador creado correctamente');
+            $this->resert();
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', $e);
         }
-
-        User::insert([
-            'name' => $this->name,
-            'last_name' => $this->lastName,
-            'job_title' => $this->jobTitle,
-            'extension' => $this->extension,
-            'department_id' => $this->department,
-            'type' => $this->type,
-            'birthday' => $this->birthday,
-            'email' => $this->email,
-            'email_personal' => $this->emailPersonal,
-            'personal_contact' => $this->emergencyContact,
-            'img_alt' => strtolower($this->name . "-" . $this->lastName),
-            'title_alt' => $this->name . " " . $this->lastName,
-            'route_img' => $url_image,
-            'password' => Hash::make($this->password),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'is_admin' => $this->isAdmin,
-            'estado' => 0
-
-        ]);
-        session()->flash('message', 'Colaborador creado correctamente');
     }
     function edit($id)
     {
@@ -85,15 +133,16 @@ class Personal extends Component
         $this->birthday = date('Y-m-d', strtotime($data->birthday));
         $this->email = $data->email;
         $this->emailPersonal = $data->email_personal;
-        $this->emergencyContact = $data->personal_contact;
+        $this->emergencyContact = $data->emergency_contact;
+        $this->personalContact = $data->personal_contact;
         $this->isAdmin = $data->is_admin;
         $this->file = $data->route_img;
         $this->old_file = $data->route_img;
     }
     function editPersonalData()
     {
-        $url_base_file = "public/procedures/";
-        $url_public_file = "storage/procedures/";
+        $url_base_file = "public/personal";
+        $url_public_file = "storage/personal/";
         if ($this->file == $this->old_file) {
             $url_image = $this->old_file;
         } else {
@@ -116,7 +165,8 @@ class Personal extends Component
             'birthday' => $this->birthday,
             'email' => $this->email,
             'email_personal' => $this->emailPersonal,
-            'personal_contact' => $this->emergencyContact,
+            'emergency_contact' => $this->emergencyContact,
+            'personal_contact' => $this->personalContact,
             'is_admin' => $this->isAdmin,
             'route_img' =>  $url_image,
         ]);
@@ -153,7 +203,7 @@ class Personal extends Component
     public function render()
     {
         $department_get = Department::where('id', '>', 1)->get();
-        $getProcesures = User::take(20)->where('name', 'like', '%' . $this->search . '%')->where('department_id', '>', 1)->get();
+        $getProcesures = User::take(35)->where('name', 'like', '%' . $this->search . '%')->where('department_id', '>', 1)->orderBy('created_at','asc')->get();
         return view(
             'livewire.personal',
             [

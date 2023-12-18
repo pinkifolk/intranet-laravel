@@ -2,12 +2,12 @@
 
 @section('content')
 <h1 class="text-3xl font-bold mb-5">Editando una Noticia</h1>
-<form action="{{route('news.update',$retunItem)}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('news.update',$news)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <div class="grid">
         <label class="block tracking-wide font-bold mb-2">Titulo</label>
-        <input type="text" name="title" value="{{$retunItem->title}}"
+        <input type="text" name="title" value="{{$news->title}}"
             class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
         @error('title')
         <span class="text-red-600">{{$message}}</span>
@@ -15,17 +15,19 @@
         <label class="block tracking-wide font-bold mb-2">Contenido</label>
         <textarea name="description" id="content" cols="20" rows="5"
             class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
-        {{$retunItem->description}}
+        {{$news->description}}
     </textarea>
         @error('description')
         <span class="text-red-600">{{$message}}</span>
         @enderror
         <label class="block tracking-wide font-bold">Imagen</label>
-        @if ($retunItem->imagen)
-        <div class="my-5 p-5 border-4 border-gray-500 text-center">
-            <a href="{{asset($retunItem->imagen)}}" target="_blank">
-                <i class="fa-solid fa-image fa-2xl"></i>
-            </a>
+        @if ($news->imagen)
+        <div class="my-5 p-5">
+            <button type="button" id="del" name="del">
+                <i class="fa-solid fa-x"></i>
+            </button>
+            <img src="{{asset($news->imagen)}}" name="image" class="w-52 h-52 rounded-md">
+            <input type="text" name="image" value="{{$news->imagen}}" hidden>
         </div>
         @else
         <input type="file" name="image"
@@ -41,6 +43,10 @@
 @section('js')
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('content');
+    CKEDITOR.plugins.addExternal ( 'justify', '{{asset("/build/assets/justify/plugin.js")}}' );
+    CKEDITOR.replace('content',{
+        extraPlugins: 'justify',
+    });
+    
 </script>
 @endsection

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('email_personal');
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('personal_contact');
+            $table->string('personal_contact');
             $table->string('img_alt');
             $table->string('title_alt');
             $table->string('route_img');
