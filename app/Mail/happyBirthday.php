@@ -16,9 +16,9 @@ class happyBirthday extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(protected $userBirthday)
+    public function __construct(protected $birthday)
     {
-        $this->data = $userBirthday[0];
+        $this->data = $birthday;
     }
 
     /**

@@ -14,7 +14,7 @@
 
 <body>
     <div class="h-screen md:flex">
-        <div class="bg-back sm:w-full md:w-1/2">
+        <div class="bg-back sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/3">
             <div class="flex flex-col items-center justify-center h-screen">
                 <div>
                     <i class="fa-solid fa-user fa-2xl"></i>
@@ -48,9 +48,9 @@
         </div>
         <div class="sm:hidden md:block full-bg">
             <div class="mt-16 ml-20">
-                <img src="img/provaltec-negro.png" alt="Provaltec" title="Provaltec">
+                <img src="img/provaltec-blanco-footer.png" alt="Provaltec" title="Provaltec">
             </div>
-            <div class="ml-20">
+            <div class="ml-20 text-white">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sequi quibusdam debitis quos architecto
                     voluptates recusandae, maiores commodi consequuntur excepturi distinctio temporibus? Sit voluptatem
                     eveniet similique distinctio earum praesentium beatae.</p>
