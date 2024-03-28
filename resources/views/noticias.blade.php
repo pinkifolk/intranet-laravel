@@ -10,7 +10,7 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                         {{$item->title}}</h5>
                     <p class="mb-3 font-normal text-gray-700">
-                        {!!$item->description!!}</p>
+                        {!!Str::limit($item->description,500)!!}</p>
                     <span class="text-xs text-slate-600">
                         Pubicado:
                         <i class="fa-regular fa-clock fa-md"></i>

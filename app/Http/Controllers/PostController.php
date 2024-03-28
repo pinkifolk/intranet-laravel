@@ -22,7 +22,7 @@ class PostController extends Controller
     }
     public function getseven()
     {
-        $news_five_first = News::orderBy('created_at', 'desc')->take(5)->get();
+        $news_five_first = News::orderBy('created_at', 'desc')->take(4)->get();
         $news_four_first = News::orderBy('created_at', 'desc')->skip(6)->take(4)->get();
         return view('inicio', compact('news_five_first', 'news_four_first'));
     }
