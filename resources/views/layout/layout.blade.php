@@ -17,23 +17,23 @@
         <div class="flex justify-between flex-col h-screen">
             <div class="flex flex-col items-center mt-24 text-slate-100 m-auto text-center">
                 <img src="{{asset(auth()->user()->route_img)}}" class="rounded-full border-4 border-secondary" style="width:8rem; height:8rem;"
-                    alt="{{auth()->user()->img_alt}}" title="{{auth()->user()->title_alt}}">
-                <h1 class="font-bold text-2xl">{{auth()->user()->name ." ".auth()->user()->last_name }}</h1>
-                <span>{{auth()->user()->job_title}}</span>
+                    alt="{{auth()->user()->img_alt}}" title="{{auth()->user()->title_alt}}" id="imgUser">
+                <h1 class="font-bold text-2xl" id="nameUser">{{auth()->user()->name ." ".auth()->user()->last_name }}</h1>
+                <span id="jobTitleUser">{{auth()->user()->job_title}}</span>
             </div>
             <div class="flex flex-col text-slate-100 text-center" style="margin-bottom:2.4rem">
                 <span title="Anexo telefónico">
                     @if (auth()->user()->extension)
                     <i class="fa-solid fa-phone"></i>
-                    {{auth()->user()->extension}}
+                    <p class="inline" id="phoneUser">{{auth()->user()->extension}}</p>
                     @else
 
                     @endif
                 </span>
-                <span title="Fecha de Nacimiento">
+                <span title="Fecha de Nacimiento" >
                     @if(auth()->user()->birthday)
                     <i class="fa-solid fa-cake-candles mr-1"></i>
-                    {{date('d-m-Y',strtotime(auth()->user()->birthday))}}
+                    <p class="inline" id="birthdayUser">{{date('d-m-Y',strtotime(auth()->user()->birthday))}}</p>
                     @else
 
                     @endif
@@ -41,7 +41,7 @@
                 <span title="Numero Personal o Empresa">
                     @if (auth()->user()->personal_contact)
                     <i class="fa-solid fa-mobile-screen-button mr-1"></i>
-                    {{auth()->user()->personal_contact}}
+                    <p class="inline" id="celUser">{{auth()->user()->personal_contact}}</p>                    
                     @else
 
                     @endif
@@ -50,7 +50,7 @@
                 <span title="Contacto de Emergencia">
                     @if (auth()->user()->emergency_contact)
                     <i class="fa-solid fa-truck-medical mr-1"></i>
-                    {{auth()->user()->emergency_contact}}
+                    <p class="inline" id="emergencyPhoneUser"> {{auth()->user()->emergency_contact}}</p> 
                     @else
 
                     @endif
@@ -59,7 +59,8 @@
                 <span title="Correo Corporativo">
                     @if (auth()->user()->email)
                     <i class="fa-regular fa-envelope"></i>
-                    {{auth()->user()->email}}
+                    <p class="inline" id="emailUser"> {{auth()->user()->email}}</p> 
+                   
                     @else
 
                     @endif
@@ -81,12 +82,8 @@
                     <a href="{{route('home')}}"
                         class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Inicio</a>
                 </li>
-                <li class="md:hidden">
-                    <a href="{{route('profile')}}"
-                        class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Perfil</a>
-                </li>
                 <li>
-                    <a href="{{route('teams')}}" class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Contactos</a>
+                    <a href="{{route('cronogram')}}" class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Cronograma</a>
                 </li>
                 <li> <a href="#" id="openSub" class="font-medium block py-2 pl-7 pr-7 peer">Nosotros <div
                             class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i>
@@ -100,16 +97,16 @@
                                 class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Beneficios</a>
                         </li>
                         <li><a href="{{route('normative')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Normativas</a>
+                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Politicas / Reglamentos</a>
                         </li>
                         <li><a href="{{route('our-values')}}"
                                 class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Nuestros
                                 Valores</a></li>
                         <li>
-                            <a href="{{route('teams')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Equipo</a>
+                            <a href="#"
+                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Areas</a>
                             <ul
-                                class="hidden md:peer-hover:flex bg-action absolute top-40 left-44 md:hover:flex flex-col rounded-md w-64">
+                                class="hidden md:peer-hover:flex bg-action absolute top-40 left-[232px] md:hover:flex flex-col rounded-md w-64">
                                 <li>
                                     @foreach ($dep as $item)
                                     <a href="{{route('department',$item)}}"
@@ -120,6 +117,9 @@
                             </ul>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="{{route('history')}}" class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Historia</a>
                 </li>
                 <li>
                     <a href="{{route('gallery')}}" class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Galeria</a>
@@ -145,7 +145,7 @@
             </ul>
         </div>
     </nav>
-    <div class="text-white md:text-black fixed right-10 top-7 z-50 hidden md:block">
+    <div class="text-white md:text-black fixed right-10 top-2 z-50 hidden md:block">
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button>
@@ -186,6 +186,7 @@
         </div>
     </footer>
     <script src="{{asset('build/assets/app-03.js')}}"></script>
+    @yield('js')
 
 </body>
 

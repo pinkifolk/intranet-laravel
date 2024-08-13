@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class ProcedureController extends Controller
 {
     public function index()
-    {
-        $procedure_get = Procedures::get();
-        return view('procedimientos', compact('procedure_get'));
+    {       
+        $get_asign = Procedures::select('orders')->groupBy('orders')->get();
+        return view('procedimientos', compact('get_asign'));
+    }
+    public function show($request) {
+        $procedure_get = Procedures::where('orders',$request)->get();
+        return view('proceduresDetail',compact('procedure_get'));
     }
 }

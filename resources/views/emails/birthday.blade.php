@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td colspan="4" style="padding-left: 52px; padding-right: 52px;">
-                    <p style="color: #616161; font-size: 12px; line-heigh=t: 1.83; letter-spacing: 0.77px; text-align:
+                    <p style="color: #616161; font-size: 12px; line-height: 1.83; letter-spacing: 0.77px; text-align:
                         center;">Hoy queremos desearle en este día un muy feliz
                         cumpleaños a nuestro(a) compañero(a) de trabajo y desearle lo mejor en esta
                         nueva vuelta al sol.</p>

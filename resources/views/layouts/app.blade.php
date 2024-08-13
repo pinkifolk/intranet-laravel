@@ -19,7 +19,7 @@
 
 <body class="bg-back">
     <aside class="fixed top-0 left-0 z-40 w-52 h-screen bg-aside">
-        <div class="mx-auto mt-8 p-2 w-200">
+        <div class="mx-auto mt-6 p-2 w-200">
             <a href="{{route('admin.home')}}"><img src="{{asset('img/provaltec-blanco.png')}}" alt="Provaltec-SpA"
                     title="Provaltec-SpA"></a>
         </div>
@@ -34,6 +34,14 @@
                 <li class="my-3">
                     <i class="fa-solid fa-users mx-2"></i>
                     <a href="{{route('personal.index')}}">Colaboradores</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-calendar-days mx-2"></i>                    
+                    <a href="{{route('cronogram.index')}}">Cronograma</a>
+                </li>
+                <li class="my-3">
+                    <i class="fa-solid fa-timeline mx-2"></i>                   
+                    <a href="{{route('history.index')}}">Historial</a>
                 </li>
                 <li class="my-3">
                     <i class="fa-solid fa-book mx-2"></i>

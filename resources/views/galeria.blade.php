@@ -1,17 +1,44 @@
 @extends('layout.layout')
 @section('content')
-@foreach ($result as $item)
-<h1 class="text-3xl italic text-center">{{$item->title}}</h1>
-<div class="italic text-md text-justify p-3">
-    <span>{{$item->descripcion}}</span>
-</div>
-<a href="{{route('gallery.show',$item->slug)}}" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 mt-2">
-    @foreach ($item->photos->take(4) as $i)
-    <div>
-        <img class="h-auto max-w-full rounded-lg" src="{{$i->url_img}}" alt="">
-    </div>
+<div class="flex justify-center w-full gap-2 flex-wrap ">
+    @foreach ($result as $item)    
+        <div class="bg-white rounded-lg shadow-sm shadow-aside  max-w-sm">
+            <a href="{{route('gallery.show',$item->slug)}}">
+                @foreach ($item->photos->take(1) as $img)
+                    <img class="rounded-t-lg" src="{{$img->url_img}}" alt="{{$item->title}}" />
+                @endforeach
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$item->title}}</h5>
+                </a>   
+                <p class="pb-2 text-gray-800">{!!Str::limit($item->descripcion,100)!!}</p>         
+                <a href="{{route('gallery.show',$item->slug)}}" class="block items-center px-3 py-2 text-sm font-medium text-center text-white hover:text-aside bg-action rounded-lg">
+                    Ver galeria
+                </a>
+            </div>
+        </div>
     @endforeach
-</a>
+</div>
+{{-- <div class="grid sm:grid-cols-12 lg:grid-cols-3 gap-2">
+@foreach ($result as $item)    
+<div class="max-w-sm bg-white border border-aside/60 rounded-lg shadow-sm shadow-aside">
+    <a href="{{route('gallery.show',$item->slug)}}">
+        @foreach ($item->photos->take(1) as $img)
+            <img class="rounded-t-lg" src="{{$img->url_img}}" alt="{{$item->title}}" />
+        @endforeach
+    </a>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$item->title}}</h5>
+        </a>   
+        <p class="pb-2 text-gray-800">{!!Str::limit($item->descripcion,100)!!}</p>         
+        <a href="{{route('gallery.show',$item->slug)}}" class="block items-center px-3 py-2 text-sm font-medium text-center text-white hover:text-aside bg-action rounded-lg">
+            Ver galeria
+        </a>
+    </div>
+</div>
 @endforeach
+</div> --}}
 <h1 class="h-screen"></h1>
 @endsection

@@ -30,7 +30,7 @@ class birthday extends Command
      */
     public function handle()
     {
-        $userBirthday = User::whereMonth('birthday', Carbon::now()->format('m'))->whereDay('birthday', Carbon::now()->format('d'))->get();
+        $userBirthday = User::whereMonth('birthday', Carbon::now()->format('m'))->whereDay('birthday', Carbon::now()->format('d'))->where('id', '>', 1)->get();
         if ($userBirthday) {
             $userRegister = User::where('id', '>', 1)->get(); //= 50
             foreach($userBirthday as $birthday){

@@ -4,9 +4,11 @@ use App\Http\Controllers\Administrators;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BenefitsController;
+use App\Http\Controllers\CronogramController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NormativeController;
@@ -15,7 +17,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProceduresController;
-use App\Http\Controllers\ProfileController;
+
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ValuesController;
 use App\Http\Controllers\ValueController;
@@ -26,13 +28,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'formLogin'])->name('login');
 Route::get('/inicio', [PostController::class, 'getseven'])->middleware('auth')->name('home');
-Route::get('/perfil', [ProfileController::class, 'index'])->middleware('auth')->name('profile');
+Route::get('/cronograma', [CronogramController::class, 'index'])->middleware('auth')->name('cronogram');
 Route::get('/procedimientos', [ProcedureController::class, 'index'])->middleware('auth')->name('procedure');
+Route::get('/procedimientos/{id}', [ProcedureController::class, 'show'])->middleware('auth')->name('procedure.show');
 Route::get('/beneficios', [BenefitController::class, 'index'])->middleware('auth')->name('benefit');
 Route::get('/normativas', [NormativeController::class, 'index'])->middleware('auth')->name('normative');
 Route::get('/valores', [ValueController::class, 'index'])->middleware('auth')->name('our-values');
-Route::get('/equipo', [TeamController::class, 'index'])->middleware('auth')->name('teams');
 Route::get('/equipo/{department}', [TeamController::class, 'department'])->name('department');
+Route::get('/historia/', [HistoryController::class, 'index'])->name('history');
 Route::get('/galeria/', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/galeria/{slug}', [GalleryController::class, 'show'])->name('gallery.show');
 Route::get('/noticias', [PostController::class, 'index'])->middleware('auth')->name('post');
@@ -53,6 +56,9 @@ Route::get('admin/normativas', [NormativesController::class, 'index'])->middlewa
 Route::get('admin/nuestros-valores', [ValuesController::class, 'index'])->middleware('admins')->name('values.index');
 
 Route::get('admin/equipo', [PersonalController::class, 'index'])->middleware('admins')->name('personal.index');
+Route::get('admin/cronograma', [CronogramController::class, 'admin'])->middleware('admins')->name('cronogram.index');
+Route::get('admin/cronograma/maestro', [CronogramController::class, 'donwload'])->middleware('admins')->name('cronogram.master');
+Route::get('admin/historia', [HistoryController::class, 'admin'])->middleware('admins')->name('history.index');
 
 Route::get('admin/departamentos', [DepartmentController::class, 'index'])->middleware('admins')->name('department.index');
 Route::get('admin/galeria', [GalleryController::class, 'admin'])->middleware('admins')->name('gallery.admin');

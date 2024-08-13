@@ -1,18 +1,14 @@
 @extends('layout.layout')
 @section('content')
 <h1 class="text-3xl font-bold mb-5">Procedimientos</h1>
-@foreach ($procedure_get as $item)
-<div class="grid grid-cols-2 md:grid-cols-3 mb-6 p-5 hover:bg-slate-300 rounded-md">
-    <div class="col-span-3">
-        <h5 class="font-bold text-xl">{{$item->title}}</h5>
-    </div>
-    <div class="col-span-2">{{$item->detail}}</div>
-    <div class="flex items-center justify-center">
-        <a href="{{$item->url_pdf}}" target="_bank" title="descargar">
-            <i class="fa-solid fa-file-pdf fa-2xl"></i>
+
+<div class="grid grid-cols-3 gap-3 w-[800px] h-[400px] m-auto">
+    @foreach ($get_asign as $item)
+        <a href="{{route('procedure.show',$item->orders)}}" class="block max-w-sm p-6 bg-yellow-500 border border-gray-200 rounded-lg shadow transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:duration-100">        
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$item->orders}}</h5>
+            <p class="font-normal text-gray-800">Procedimientos de el area de {{$item->orders}}</p>
         </a>
-    </div>
+    @endforeach
 </div>
-@endforeach
 <h1 class="h-screen"></h1>
 @endsection

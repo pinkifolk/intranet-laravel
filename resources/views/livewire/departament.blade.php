@@ -76,10 +76,16 @@
                             <span class="text-red-600">{{$message}}</span>
                             @enderror
                         </div>
-                        <label class="block tracking-wide font-bold mb-2">Imagen</label>
+                        <label class="block tracking-wide font-bold mb-2">Imagen del Area</label>
                         <input type="file" name="file" wire:model="file"
                             class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
                         @error('file')
+                        <span class="text-red-600">{{$message}}</span>
+                        @enderror
+                        <label class="block tracking-wide font-bold mb-2">Imagen Ubicación</label>
+                        <input type="file" name="file" wire:model="file_loc"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-aside file:text-white hover:file:bg-action">
+                        @error('file_loc')
                         <span class="text-red-600">{{$message}}</span>
                         @enderror
                         <!-- Modal footer -->
