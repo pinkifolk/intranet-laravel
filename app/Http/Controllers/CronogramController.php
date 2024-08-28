@@ -8,7 +8,8 @@ use Carbon\Carbon;
 class CronogramController extends Controller
 {
     public function index() {
-        $get_cronogram = ModelsCronogram::all()->groupBy(
+        $fecha = Carbon::now();
+        $get_cronogram = ModelsCronogram::all()->where('date','>', $fecha)->groupBy(
             function($date) {
                 return Carbon::parse($date->date)->format('Y-m');
             }
