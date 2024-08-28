@@ -37,7 +37,7 @@
                             <a href="{{route('history')}}" class="font-medium block py-2 px-7 hover:text-aside">Historia</a>
                         </li>
                         <li>
-                            <a href="{{route('normative')}}" class="font-medium block py-2 px-7 hover:text-aside">Cofundadores</a>
+                            <a href="{{route('department',15)}}" class="font-medium block py-2 px-7 hover:text-aside">Cofundadores</a>
                         </li>
                         <li>
                             <a href="{{route('vision-values',3)}}" class="font-medium block py-2 px-7 hover:text-aside">Vision</a>
@@ -52,7 +52,7 @@
                             <a href="{{route('procedure')}}" class="font-medium block py-2 px-7 hover:text-aside">Organigrama</a>
                         </li>
                         <li>
-                            <a href="{{route('procedure')}}" class="font-medium block py-2 px-7 hover:text-aside">AAM Spa</a>
+                            <a href="{{route('department',14)}}" class="font-medium block py-2 px-7 hover:text-aside">AAM Spa</a>
                         </li>
                         
                     </ul>
