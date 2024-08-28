@@ -49,7 +49,7 @@
                             <a href="{{route('our-values',5)}}" class="font-medium block py-2 px-7 hover:text-aside">Valores</a>
                         </li>
                         <li>
-                            <a href="{{route('procedure')}}" class="font-medium block py-2 px-7 hover:text-aside">Organigrama</a>
+                            <a href="{{route('organigram')}}" class="font-medium block py-2 px-7 hover:text-aside">Organigrama</a>
                         </li>
                         <li>
                             <a href="{{route('department',14)}}" class="font-medium block py-2 px-7 hover:text-aside">AAM Spa</a>

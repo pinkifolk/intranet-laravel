@@ -46,6 +46,7 @@ Route::get('/noticias/{slug}', [PostController::class, 'show'])->middleware('aut
 Route::get('/campanias-del-mes/', [CampaignController::class, 'index'])->middleware('auth')->name('campaign');
 Route::get('/rrss/', [RRSSController::class, 'index'])->middleware('auth')->name('rrss');
 Route::get('/preguntas-frecuentes', [QuestionsController::class, 'index'])->middleware('auth')->name('questions');
+Route::view('/organigrama/','organigrama')->name('organigram');
 
 
 /*Routes for admin user */
