@@ -4,12 +4,12 @@ use App\Http\Controllers\Administrators;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\BenefitsController;
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CronogramController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NormativeController;
 use App\Http\Controllers\NormativesController;
@@ -17,7 +17,8 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProceduresController;
-
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\RRSSController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ValuesController;
 use App\Http\Controllers\ValueController;
@@ -33,13 +34,18 @@ Route::get('/procedimientos', [ProcedureController::class, 'index'])->middleware
 Route::get('/procedimientos/{id}', [ProcedureController::class, 'show'])->middleware('auth')->name('procedure.show');
 Route::get('/beneficios', [BenefitController::class, 'index'])->middleware('auth')->name('benefit');
 Route::get('/normativas', [NormativeController::class, 'index'])->middleware('auth')->name('normative');
-Route::get('/valores', [ValueController::class, 'index'])->middleware('auth')->name('our-values');
+Route::get('/vision/{type}', [ValueController::class, 'index'])->middleware('auth')->name('vision-values');
+Route::get('/mision/{type}', [ValueController::class, 'index'])->middleware('auth')->name('mision-values');
+Route::get('/valores/{type}', [ValueController::class, 'index'])->middleware('auth')->name('our-values');
 Route::get('/equipo/{department}', [TeamController::class, 'department'])->name('department');
 Route::get('/historia/', [HistoryController::class, 'index'])->name('history');
 Route::get('/galeria/', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/galeria/{slug}', [GalleryController::class, 'show'])->name('gallery.show');
 Route::get('/noticias', [PostController::class, 'index'])->middleware('auth')->name('post');
 Route::get('/noticias/{slug}', [PostController::class, 'show'])->middleware('auth')->name('post.show');
+Route::get('/campanias-del-mes/', [CampaignController::class, 'index'])->middleware('auth')->name('campaign');
+Route::get('/rrss/', [RRSSController::class, 'index'])->middleware('auth')->name('rrss');
+Route::get('/preguntas-frecuentes', [QuestionsController::class, 'index'])->middleware('auth')->name('questions');
 
 
 /*Routes for admin user */
@@ -72,6 +78,9 @@ Route::patch('admin/noticias/{news}', [NewsController::class, 'update'])->middle
 
 Route::get('admin/comunicados', [NewsController::class, 'release'])->middleware('admins')->name('releases.release');
 Route::post('admin/comunicados', [NewsController::class, 'releaseStore'])->middleware('admins')->name('releases.store');
+Route::get('admin/preguntas', [QuestionsController::class, 'question'])->middleware('admins')->name('admin-question');
+Route::get('admin/campanias', [CampaignController::class, 'campaign'])->middleware('admins')->name('admin-campaign');
+Route::get('admin/rrss', [RRSSController::class, 'rrss'])->middleware('admins')->name('admin-rrss');
 Route::get('admin/administradores', [Administrators::class, 'index'])->middleware('admins')->name('adminstrators.index');
 
 

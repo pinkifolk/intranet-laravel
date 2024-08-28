@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $get_all = News::orderBy('created_at', 'desc')->get();
+        $get_all = News::orderBy('created_at', 'desc')->paginate(10);
         return view('noticias', compact('get_all'));
     }
     public function show($slug)

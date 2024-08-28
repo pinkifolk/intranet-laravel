@@ -21,7 +21,7 @@ class DepartamentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $dep = Department::where('id', '>', 1)->get();
+        $dep = Department::where('id', '>', 1)->whereNotIn('id',[14,15])->get();
         $this->department = $dep;
         view()->composer('layout.layout', function ($view) {
             $view->with(['dep' => $this->department]);

@@ -22,4 +22,5 @@
     </div>
     @endforeach
 </div>
+{{ $get_all->links() }}
 @endsection

@@ -48,6 +48,9 @@ class TeamController extends Controller
             case 14 : 
                 $query->where('department_id',14)->whereIn('type',[2,3,4])->orderBy('type','asc');
                 break;
+            case 18 : 
+                $query->whereIn('id',[94,49])->orderBy('type','asc');
+                break;
             default:
                 $query->where('department_id',$id);
                 break;

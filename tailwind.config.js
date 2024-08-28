@@ -18,6 +18,7 @@ module.exports = {
         hover: 'rgb(34 136 150 / 85%)',
         secondary: '#A9C52F',
         message: 'rgb(21 128 61 / 77%)',
+        hovermenu:'rgb(129 129 129 / 31%)'
       },
       spacing: {
         '200': '200px',
@@ -26,6 +27,7 @@ module.exports = {
     },
 
   },
-  plugins: [],
+  plugins: [
+  ],
 }
 

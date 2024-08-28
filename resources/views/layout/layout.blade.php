@@ -80,60 +80,101 @@
             <ul class="bg-aside rounded-md w-full text-white mt-2 md:flex md:bg-back md:text-black">
                 <li>
                     <a href="{{route('home')}}"
-                        class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Inicio</a>
+                        class="font-medium block py-2 px-4 md:hover:border-b-4 border-b-action">Inicio</a>
                 </li>
                 <li>
-                    <a href="{{route('cronogram')}}" class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Cronograma</a>
+                    <a href="{{route('cronogram')}}" class="font-medium block py-2 px-4 hover:text-aside peer">Cronograma</a>
                 </li>
-                <li> <a href="#" id="openSub" class="font-medium block py-2 pl-7 pr-7 peer">Nosotros <div
-                            class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i>
-                        </div></a>
+                <li> <a href="#" id="openSub" class="font-medium block py-2 px-4 peer">Organización 
+                    <div class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i></div>                    
+                </a>
                     <ul class="w-full md:w-auto md:absolute drop-shadow-lg hidden md:peer-hover:flex md:hover:flex flex-col bg-action p-1 text-white rounded-md"
                         id="sub">
-                        <li><a href="{{route('procedure')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Procedimientos</a>
+                        <li>
+                            <a href="{{route('history')}}" class="font-medium block py-2 px-4 hover:text-aside">Historia</a>
                         </li>
-                        <li><a href="{{route('benefit')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Beneficios</a>
+                        <li>
+                            <a href="{{route('department',15)}}" class="font-medium block py-2 px-4 hover:text-aside">Cofundadores</a>
                         </li>
-                        <li><a href="{{route('normative')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Politicas / Reglamentos</a>
+                        <li>
+                            <a href="{{route('vision-values',3)}}" class="font-medium block py-2 px-4 hover:text-aside">Vision</a>
                         </li>
-                        <li><a href="{{route('our-values')}}"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Nuestros
-                                Valores</a></li>
+                        <li>
+                            <a href="{{route('mision-values',4)}}" class="font-medium block py-2 px-4 hover:text-aside">Mision</a>
+                        </li>
+                        <li>
+                            <a href="{{route('our-values',5)}}" class="font-medium block py-2 px-4 hover:text-aside">Valores</a>
+                        </li>
+                        <li>
+                            <a href="{{route('procedure')}}" class="font-medium block py-2 px-4 hover:text-aside">Organigrama</a>
+                        </li>
+                        <li>
+                            <a href="{{route('department',14)}}" class="font-medium block py-2 px-4 hover:text-aside">AAM Spa</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li> <a href="#" id="openSub" class="font-medium block py-2 px-4 peer">Nosotros 
+                    <div class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i></div>                    
+                </a>
+                    <ul class="w-full md:w-auto md:absolute drop-shadow-lg hidden md:peer-hover:flex md:hover:flex flex-col bg-action p-1 text-white rounded-md"
+                        id="sub">
                         <li>
                             <a href="#"
-                                class="font-medium block py-2 pl-7 pr-7 hover:text-aside peer">Areas</a>
+                                class="font-medium block py-2 px-4 hover:text-aside peer">Areas</a>
                             <ul
-                                class="hidden md:peer-hover:flex bg-action absolute top-40 left-[232px] md:hover:flex flex-col rounded-md w-64">
+                                class="hidden md:peer-hover:flex bg-action absolute top-0 left-[211px] md:hover:flex flex-col rounded-md w-64">
                                 <li>
                                     @foreach ($dep as $item)
                                     <a href="{{route('department',$item)}}"
-                                        class="font-medium block py-2 pl-7 pr-7 hover:text-aside">{{$item->name}}</a>
+                                        class="font-medium block py-2 px-4 hover:text-aside">{{$item->name}}</a>
                                     @endforeach
 
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="{{route('benefit')}}" class="font-medium block py-2 px-4 hover:text-aside">Beneficios</a>
+                        </li>
+                        <li>
+                            <a href="{{route('normative')}}" class="font-medium block py-2 px-4 hover:text-aside">Politicas / Reglamentos</a>
+                        </li>
+                        <li>
+                            <a href="{{route('procedure')}}" class="font-medium block py-2 px-4 hover:text-aside">Procedimientos</a>
+                        </li>
+                        
                     </ul>
                 </li>
+                <li> <a href="#" id="openSub" class="font-medium block py-2 px-4 peer">Blog 
+                    <div class="md:hidden float-right"><i class="fa-solid fa-chevron-down"></i></div>                    
+                </a>
+                    <ul class="w-full md:w-auto md:absolute drop-shadow-lg hidden md:peer-hover:flex md:hover:flex flex-col bg-action p-1 text-white rounded-md"
+                        id="sub">                
+                        <li>
+                            <a href="{{route('post')}}" class="font-medium block py-2 px-4 hover:text-aside">Noticias</a>
+                        </li>
+                        <li>
+                            <a href="{{route('campaign')}}" class="font-medium block py-2 px-4 hover:text-aside">Campañas del Mes</a>
+                        </li>
+                        <li>
+                            <a href="{{route('rrss')}}" class="font-medium block py-2 px-4 hover:text-aside">Publicaciones RRSS</a>
+                        </li>
+                        
+                    </ul>
+                </li>            
                 <li>
-                    <a href="{{route('history')}}" class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Historia</a>
+                    <a href="{{route('gallery')}}" class="font-medium block py-2 px-4 md:hover:border-b-4 border-b-action">Galeria</a>
                 </li>
                 <li>
-                    <a href="{{route('gallery')}}" class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Galeria</a>
-                </li>
-                <li><a href="{{route('post')}}"
-                        class="font-medium block py-2 pl-7 pr-7 md:hover:border-b-4 border-b-action">Noticias</a>
+                    <a href="{{route('questions')}}" class="font-medium block py-2 px-2 md:hover:border-b-4 border-b-action">Preguntas Frecuentes</a>
                 </li>
                 @if(auth()->user()->is_admin === 1)
-                <li><a href="{{route('admin.home')}}"class="font-medium block py-2 pl-7 pr-7 hover:text-aside">Configuración</a></li>
+                <li><a href="{{route('admin.home')}}"class="font-medium block py-2 px-2 hover:text-aside">Configuración</a></li>
                 @else
                 
                 @endif
                 <li class="md:hidden">
-                    <div class="text-white md:text-black font-medium block py-2 pl-7 pr-7 text-right">
+                    <div class="text-white md:text-black font-medium block py-2 px-4 text-right">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button>
